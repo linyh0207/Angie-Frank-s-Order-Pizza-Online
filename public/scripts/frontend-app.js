@@ -3,7 +3,9 @@ $(() => {
   function createPizzaCard() {
     let $card = $('<div>').addClass();
     let $pizzaimg = $('<img>').addClass().attr('src', );
-    let $cardtitle = $('<h5>').addClass();
-    let
+    let $pizzatitle = $('<h5>').addClass();
+    let $pizzadescription = $('<p>').addClass();
+    let $pizzaprice = $('<h4>').addClass();
+    let $quantitybox = $('<form>')
   }
 });
