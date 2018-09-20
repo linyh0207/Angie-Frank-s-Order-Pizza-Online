@@ -18,6 +18,7 @@
 
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
     <script type="text/javascript" src="/scripts/app.js"></script>
+    <script type="text/javascript" src="/scripts/checkout.js"></script>
   </head>
 
   <body>
@@ -78,12 +79,12 @@
           <div class="card-body">
             <h5 class="card-title">Total: 0.00</h5>
             <form class="form-inline">
-              <button class="btn btn-outline-secondary" type="button">Checkout</button>
+              <button id= "checkoutbtn" class="btn btn-outline-secondary" type="button">Checkout</button>
             </form>
           </div>
         </div>
         <div class="card">
-          <div class="card-body">
+          <div id= "status" hidden="true" class="card-body">
             <h4 class="card-title">Order Confirmed</h4>
             <h5 class="card-subtitle">Status</h5>
             <p></p>

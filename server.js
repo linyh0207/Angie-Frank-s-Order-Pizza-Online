@@ -45,12 +45,12 @@ app.get("/", (req, res) => {
 
 // Customer Page
 app.get("/customer/1", (req, res) => {
-  // res.render("");
+  res.render("customer");
 });
 
 // Owner Page
 app.get("/owner", (req, res) => {
-  // res.render("");
+  res.render("vendor");
 });
 
 // For click Checkout button
