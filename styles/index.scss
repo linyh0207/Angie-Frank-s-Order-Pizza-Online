@@ -1,7 +1,46 @@
-body {
-  background-color: #EEE;
+body{
+  background-color: white;
+  nav {
+    background-color: white;
+    height: 100px;
+    img {
+      width: 300px;
+      margin-left: 1em;
+    }
+    form.form-inline {
+      button.btn { 
+        color: grey;
+        margin: 0.5em;
+      }
+    }
+  }
 
-  h1 {
-    color: #244751;
+  div.mainbanner {
+    
+    img {
+      width: 90%;
+      height: 90%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  
+  div.container{
+    div.row{
+      margin-top: 4em;
+      margin-bottom: 4em;
+      div.col-sm img{
+        width: 320px;
+        height: 320px;
+        padding: 2em;
+      }
+      h1{
+        text-align: center
+      }
+      p{
+        text-align: center
+      }
+    }
   }
 }

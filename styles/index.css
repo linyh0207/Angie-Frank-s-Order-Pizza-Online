@@ -1,8 +1,27 @@
 body {
-  background-color: #EEE;
+  background-color: white;
 }
-body h1 {
-  color: #244751;
+body nav {
+  background-color: white;
+  height: 100px;
+}
+body nav img {
+  width: 300px;
+  margin-left: 1em;
+}
+body nav form.form-inline button.btn {
+  color: grey;
+  margin: 0.5em;
+}
+body div.mainbanner img {
+  width: 90%;
+  height: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+body div.container div.col-sm {
+  width: 500px;
+  height: 500px;
 }
 
 /*# sourceMappingURL=index.css.map */
