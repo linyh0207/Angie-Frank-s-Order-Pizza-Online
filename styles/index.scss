@@ -8,7 +8,7 @@ body{
       margin-left: 1em;
     }
     form.form-inline {
-      button.btn { 
+      input.btn { 
         color: grey;
         margin: 0.5em;
       }
@@ -30,9 +30,8 @@ body{
     div.row{
       margin-top: 4em;
       margin-bottom: 4em;
-      div.col-sm img{
-        width: 320px;
-        height: 320px;
+      div.col-4 img{
+        width: 100%;
         padding: 2em;
         margin: auto;
       }

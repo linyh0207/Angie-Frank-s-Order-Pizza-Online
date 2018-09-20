@@ -9,7 +9,7 @@ body nav img {
   width: 300px;
   margin-left: 1em;
 }
-body nav form.form-inline button.btn {
+body nav form.form-inline input.btn {
   color: grey;
   margin: 0.5em;
 }
@@ -23,10 +23,10 @@ body div.container div.row {
   margin-top: 4em;
   margin-bottom: 4em;
 }
-body div.container div.row div.col-sm img {
-  width: 320px;
-  height: 320px;
+body div.container div.row div.col-4 img {
+  width: 100%;
   padding: 2em;
+  margin: auto;
 }
 body div.container div.row h1 {
   text-align: center;
@@ -37,6 +37,9 @@ body div.container div.row p {
 body div.container div.row div.col-4 {
   margin-bottom: 2em;
 }
+body div.container div.row div.col-4 div.card {
+  border: none;
+}
 body div.container div.row div.col-4 div.card img.card-image-top {
   width: 100%;
 }
@@ -44,7 +47,18 @@ body div.container div.row div.col-4 div.card p.card-title {
   font-weight: bold;
 }
 body footer.footer {
-  background-color: lightgrey;
+  background-color: #cecece;
+  height: 150px;
+}
+body footer.footer div.container {
+  margin: 0px;
+}
+body footer.footer div.container img.footerlogo {
+  width: 200px;
+  margin: 30px;
+}
+body footer.footer div.container img.footermap {
+  width: 150px;
 }
 
 /*# sourceMappingURL=index.css.map */
