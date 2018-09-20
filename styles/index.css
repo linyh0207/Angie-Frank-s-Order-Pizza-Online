@@ -34,5 +34,20 @@ body div.container div.row h1 {
 body div.container div.row p {
   text-align: center;
 }
+body div.container div.row div.col-4 {
+  margin-bottom: 2em;
+}
+body div.container div.row div.col-4 div.card {
+  border: none;
+}
+body div.container div.row div.col-4 div.card img.card-image-top {
+  width: 100%;
+}
+body div.container div.row div.col-4 div.card p.card-title {
+  font-weight: bold;
+}
+body footer.footer {
+  background-color: lightgrey;
+}
 
 /*# sourceMappingURL=index.css.map */

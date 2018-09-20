@@ -26,7 +26,7 @@ body{
   }
 
   
-  div.container{
+  div.container {
     div.row{
       margin-top: 4em;
       margin-bottom: 4em;
@@ -35,19 +35,47 @@ body{
         height: 320px;
         padding: 2em;
       }
-      h1{
+      h1 {
         text-align: center;
       }
-      p{
+      p {
         text-align: center;
       }
     }
   }
-  div.container{
-    background-color:grey
+  div.container {
+    
     h1 {
-        
-
+      
     }
+    div.row { 
+      
+      div.col-4 {
+        margin-bottom: 2em;
+        div.card {
+          border: none;
+          img.card-image-top {
+            width: 100%;
+          }
+          p.card-title {
+            font-weight: bold;
+          }
+          p.card-text {
+
+          }
+          p.price {
+
+          }
+        }
+      }
+    }
+  }
+  footer.footer {
+    background-color:lightgrey; 
+      div.container {
+        span {
+
+        }
+      }
   }
 }
