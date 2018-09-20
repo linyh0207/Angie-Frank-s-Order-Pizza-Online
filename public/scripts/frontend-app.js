@@ -2,7 +2,7 @@
 $(() => {
 
   function createPizzaCardRead() {
-    let $pizzacolumn = $('div').addClass('col-4')
+    let $pizzacolumn = $('<div>').addClass('col-4')
     let $pizzacard = $('<div>').addClass();
     let $pizzaimg = $('<img>').addClass().attr('src', );
     let $pizzatitle = $('<p>').addClass();
@@ -73,7 +73,7 @@ $(() => {
     return $ordercard
   }
 
-  $('div.row').prepend(createOrder());
+  $('div.col-4').prepend(createOrder());
 
   function createCompleted() {
     let $ordercard = $('<div>').addClass();
@@ -83,4 +83,6 @@ $(() => {
 
     return $ordercard
   }
+
+  $('div.col-4').prepend(createCompleted());
 });
