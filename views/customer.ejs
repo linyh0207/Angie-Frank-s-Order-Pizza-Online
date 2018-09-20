@@ -24,6 +24,9 @@
   <nav class="navbar sticky-top navbar-light bg-light">
     <span class="navbar-brand mb-0 h1">HELLO</span>
     <span class="navbar mb-0 h3">Hello, Customer Name</span>
+    <form class="form-inline">
+      <button class="btn btn-outline-secondary" type="button">Logout</button>
+    </form>
   </nav>
 
   <div class="container">
@@ -36,19 +39,38 @@
             <h5 class="card-title">Cheese Pizza</h5>
             <p class="card-text">Cheese Pizza Galore! This pizza will give you super powers.</p>
             <h4>9.99</h4>
+              <form class="form-inline">
+                <span>Quantity</span>
+                <input type="text">
+                <button class="btn btn-outline-secondary" type="submit">Add to Order</button>
+              </form>
           </div>
           <div class="card">
             <img class="card-image-top" src="https://st3.depositphotos.com/6940668/16159/i/1600/depositphotos_161594052-stock-photo-delicious-and-beautiful-pizza.jpg">
             <h5 class="card-title">Cheese Pizza</h5>
             <p class="card-text">Cheese Pizza Galore! This pizza will give you super powers.</p>
             <h4>14.99</h4>
+            <form class="form-inline">
+              <span>Quantity</span>
+              <input type="text">
+              <button class="btn btn-outline-secondary" type="submit">Add to Order</button>
+            </form>
           </div>
         </div>
       </div>
       <div class="col-3">
         <div class="card">
+          <h3>Cart</h3>
           <div class="card-body">
             <h5 class="card-title">Cheese Pizza</h5>
+            <h5 class="card-subtitle">Quantity: </h5>
+            <p></p>
+            <h6 class="card-subtitle">Price</h6>
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">Cheese Pizza</h5>
+            <h5 class="card-subtitle">Quantity: </h5>
+            <p></p>
             <h6 class="card-subtitle">Price</h6>
           </div>
         </div>
@@ -62,9 +84,12 @@
         </div>
         <div class="card">
           <div class="card-body">
-            <h5 class="card-title">Order Confirmed</h5>
-            <h6 class="card-subtitle">Status</h6>
-            <h5 class="card-subtitle">Being Prepared</h5>
+            <h4 class="card-title">Order Confirmed</h4>
+            <h5 class="card-subtitle">Status</h5>
+            <p></p>
+            <h4 class="card-subtitle">Being Prepared</h4>
+            <p></p>
+            <h5 class="card-subtitle">Estimated Wait Time: 0 minutes</h5>
           </div>
         </div>
       </div>
