@@ -19,9 +19,20 @@ body div.mainbanner img {
   margin-left: auto;
   margin-right: auto;
 }
-body div.container div.col-sm {
-  width: 500px;
-  height: 500px;
+body div.container div.row {
+  margin-top: 4em;
+  margin-bottom: 4em;
+}
+body div.container div.row div.col-sm img {
+  width: 320px;
+  height: 320px;
+  padding: 2em;
+}
+body div.container div.row h1 {
+  text-align: center;
+}
+body div.container div.row p {
+  text-align: center;
 }
 
 /*# sourceMappingURL=index.css.map */
