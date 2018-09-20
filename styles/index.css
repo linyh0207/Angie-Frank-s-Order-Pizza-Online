@@ -37,9 +37,6 @@ body div.container div.row p {
 body div.container div.row div.col-4 {
   margin-bottom: 2em;
 }
-body div.container div.row div.col-4 div.card {
-  border: none;
-}
 body div.container div.row div.col-4 div.card img.card-image-top {
   width: 100%;
 }

@@ -34,6 +34,7 @@ body{
         width: 320px;
         height: 320px;
         padding: 2em;
+        margin: auto;
       }
       h1 {
         text-align: center;
@@ -71,10 +72,19 @@ body{
     }
   }
   footer.footer {
-    background-color:lightgrey; 
+    background-color:rgb(206, 206, 206);
+    height: 150px;
+    // border-top: 2px;
+    // border-top-style: solid; 
+    // border-top-color: rgb(224, 224, 224);
       div.container {
-        span {
-
+        margin: 0px;
+        img.footerlogo {
+          width: 200px;
+          margin: 30px;
+        }
+        img.footermap {
+          width:150px;
         }
       }
   }
