@@ -8,7 +8,7 @@ body{
       margin-left: 1em;
     }
     form.form-inline {
-      input.btn { 
+      input.btn {
         color: grey;
         margin: 0.5em;
       }
@@ -16,7 +16,7 @@ body{
   }
 
   div.mainbanner {
-    
+
     img {
       width: 90%;
       height: 90%;
@@ -25,13 +25,14 @@ body{
     }
   }
 
-  
+
   div.container {
     div.row{
       margin-top: 4em;
       margin-bottom: 4em;
-      div.col-4 img{
+      div.col-3 img{
         width: 100%;
+        border-radius: 50%;
         padding: 2em;
         margin: auto;
       }
@@ -44,12 +45,12 @@ body{
     }
   }
   div.container {
-    
+
     h1 {
-      
+
     }
-    div.row { 
-      
+    div.row {
+
       div.col-4 {
         margin-bottom: 2em;
         div.card {
@@ -74,7 +75,7 @@ body{
     background-color:rgb(206, 206, 206);
     height: 150px;
     // border-top: 2px;
-    // border-top-style: solid; 
+    // border-top-style: solid;
     // border-top-color: rgb(224, 224, 224);
       div.container {
         margin: 0px;

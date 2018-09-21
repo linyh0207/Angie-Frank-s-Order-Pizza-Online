@@ -18,12 +18,27 @@ body div.container div.row div.col-12 div.card {
 }
 body div.container div.row div.col-12 div.card p {
   margin: 1em;
+  border-bottom: 1px solid black;
 }
 body div.container div.row div.col-12 div.card form input {
   margin: 1em;
 }
 body div.container div.row div.col-12 div.card {
   margin-bottom: 1em;
+}
+body footer {
+  background-color: #cecece;
+  height: 150px;
+}
+body footer div.container {
+  margin: 0px;
+}
+body footer div.container img.footerlogo {
+  width: 200px;
+  margin: 30px;
+}
+body footer div.container img.footermap {
+  width: 150px;
 }
 
 /*# sourceMappingURL=vendor.css.map */

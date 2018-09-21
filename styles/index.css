@@ -23,8 +23,9 @@ body div.container div.row {
   margin-top: 4em;
   margin-bottom: 4em;
 }
-body div.container div.row div.col-4 img {
+body div.container div.row div.col-3 img {
   width: 100%;
+  border-radius: 50%;
   padding: 2em;
   margin: auto;
 }
