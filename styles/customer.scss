@@ -1,0 +1,141 @@
+body {
+  background-color: white;
+
+  nav {
+    background-color: white;
+    height: 100px;
+
+    img {
+      width: 300px;
+      margin-left: 1em;
+    }
+
+    form.form-inline {
+      input.btn {
+        color: grey;
+        margin: 1em;
+      }
+    }
+  }
+
+  div.container {
+
+    div.row {
+
+      div.col-9 {
+        margin-bottom: 2em;
+
+        h1 {}
+
+        div.row {
+
+          div.col-4 {
+            margin-bottom: 1em;
+
+            div.card {
+              border: none;
+
+              img.card-image-top {
+                width: 100%;
+              }
+
+              p.card-title {
+                font-weight: bold;
+              }
+
+              p.card-text {}
+
+              p.price {}
+
+              form.form-inline {
+
+                span {}
+
+                input {
+                  width: 10%;
+                  margin: 0.5em;
+                }
+
+                button {}
+              }
+            }
+          }
+        }
+      }
+
+      div.col-3 {
+
+        h1 {}
+
+        div#checkoutcard{
+
+          div.card-body {
+
+            p {}
+
+            img {
+              width: 50%;
+              margin: 0.5em;
+            }
+
+            p {}
+
+            p {}
+
+          }
+        }
+
+        div#totalcard {
+
+          div.card-body {
+
+            p {}
+
+            form.form-inline {
+
+              input {}
+
+            }
+          }
+        }
+
+        div#confirmedcard {
+
+          div.card-body {
+
+            p {}
+
+            p {}
+
+            p {}
+
+            img {
+              width:100%;
+            }
+
+            p{}
+
+          }
+        }
+      }
+    }
+  }
+
+  footer.footer {
+    background-color: rgb(206, 206, 206);
+    height: 150px;
+
+    div.container {
+      margin: 0px;
+
+      img.footerlogo {
+        width: 200px;
+        margin: 30px;
+      }
+
+      img.footermap {
+        width: 150px;
+      }
+    }
+  }
+}

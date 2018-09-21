@@ -1,0 +1,92 @@
+body {
+  background-color: white;
+}
+body nav {
+  background-color: white;
+  height: 100px;
+}
+body nav img {
+  width: 300px;
+  margin-left: 1em;
+}
+body nav form.form-inline input.btn {
+  color: grey;
+  margin: 0.5em;
+}
+body nav form.form-inline img.navbar-icon {
+  width: 20px;
+  height: 20px;
+  margin: 0.5em;
+}
+body div.mainbanner img {
+  width: 90%;
+  height: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+body div.mainvideo div.row video {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+body div.mainvideo div.row img {
+  position: absolute;
+  top: 410px;
+  right: 250px;
+  height: 200px;
+  width: 850px;
+  border: 8px solid black;
+}
+@media screen and (max-width: 1000px) {
+  body div.mainvideo div.row img {
+    top: 210px;
+    right: 150px;
+    height: 100px;
+    width: 650px;
+    border: 8px solid black;
+  }
+}
+body div.container div.row {
+  margin-top: 4em;
+  margin-bottom: 4em;
+}
+body div.container div.row div.col-3 img {
+  width: 100%;
+  border-radius: 50%;
+  padding: 2em;
+  margin: auto;
+}
+body div.container div.row h1 {
+  text-align: center;
+}
+body div.container div.row p {
+  text-align: center;
+}
+body div.container div.row div.col-4 {
+  margin-bottom: 2em;
+}
+body div.container div.row div.col-4 div.card {
+  border: none;
+}
+body div.container div.row div.col-4 div.card img.card-image-top {
+  width: 100%;
+}
+body div.container div.row div.col-4 div.card p.card-title {
+  font-weight: bold;
+}
+body footer.footer {
+  background-color: #cecece;
+  height: 150px;
+}
+body footer.footer div.container {
+  margin: 0px;
+}
+body footer.footer div.container img.footerlogo {
+  width: 200px;
+  margin: 30px;
+}
+body footer.footer div.container img.footermap {
+  width: 150px;
+}
+
+/*# sourceMappingURL=index.css.map */

@@ -1,0 +1,57 @@
+body {
+  background-color: white;
+}
+body nav {
+  background-color: white;
+  height: 100px;
+}
+body nav img {
+  width: 300px;
+  margin-left: 1em;
+}
+body nav form.form-inline input.btn {
+  color: grey;
+  margin: 1em;
+}
+body div.container div.row div.col-9 {
+  margin-bottom: 2em;
+}
+body div.container div.row div.col-9 div.row div.col-4 {
+  margin-bottom: 1em;
+}
+body div.container div.row div.col-9 div.row div.col-4 div.card {
+  border: none;
+}
+body div.container div.row div.col-9 div.row div.col-4 div.card img.card-image-top {
+  width: 100%;
+}
+body div.container div.row div.col-9 div.row div.col-4 div.card p.card-title {
+  font-weight: bold;
+}
+body div.container div.row div.col-9 div.row div.col-4 div.card form.form-inline input {
+  width: 10%;
+  margin: 0.5em;
+}
+body div.container div.row div.col-3 div#checkoutcard div.card-body img {
+  width: 50%;
+  margin: 0.5em;
+}
+body div.container div.row div.col-3 div#confirmedcard div.card-body img {
+  width: 100%;
+}
+body footer.footer {
+  background-color: #cecece;
+  height: 150px;
+}
+body footer.footer div.container {
+  margin: 0px;
+}
+body footer.footer div.container img.footerlogo {
+  width: 200px;
+  margin: 30px;
+}
+body footer.footer div.container img.footermap {
+  width: 150px;
+}
+
+/*# sourceMappingURL=customer.css.map */
