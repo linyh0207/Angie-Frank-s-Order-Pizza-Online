@@ -5,4 +5,9 @@ public/styles
 *.sqlite3
 .DS_Store
 db/.DS_Store
+<<<<<<< HEAD
 package-lock.json
+=======
+package-lock.json
+package.json
+>>>>>>> 1e15c9d957e5871a9e254c05d12991ad049ffa0f
