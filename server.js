@@ -8,6 +8,11 @@ const express     = require("express");
 const bodyParser  = require("body-parser");
 const sass        = require("node-sass-middleware");
 const app         = express();
+const twilio      = require("twilio");
+const accountSid  = 'ACf289a1a36a762b5ba5340d95c2c01c70';
+const authToken   = 'c36a648b2a9925367995cf60121d06ec';
+const client      = new twilio (accountSid, authToken);
+
 
 const knexConfig  = require("./knexfile");
 const knex        = require("knex")(knexConfig[ENV]);
@@ -57,6 +62,22 @@ app.get("/owner", (req, res) => {
 app.get("/checkout", (req, res) => {
   // res.render('index') <worked w/o ajax
 
+});
+
+app.get('/ownermes', function (req, res) {
+    client.messages.create({
+      to: '+16476078485',
+      from: '+16138016248',
+      body: 'You have an order ready to be prepared!'
+    }).then((message) => console.log(message.sid, "SMS SENT!"));
+});
+
+app.get('/customermes', function (req, res) {
+  client.messages.create({
+    to: '+16476078485',
+    from: '+16138016248',
+    body: 'You have an order ready for pickup!'
+  }).then((message) => console.log(message.sid, "SMS SENT!"));
 });
 
 const menuRoutes = require("./routes/menu");

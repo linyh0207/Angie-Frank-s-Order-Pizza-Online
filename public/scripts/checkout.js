@@ -1,20 +1,16 @@
-
-
   $(function () {
   //id NOT set yet
   //For checkout button
     let $button = $('#checkoutbtn')
     $button.on('submit', function (e) {
+      console.log("BUTTON_CLICKED!")
       e.preventDefault();
       $('#status').removeAttr('hidden');
-      // NEED /checkout page in html!
-      // $.ajax({
-      //   method: "GET",
-      //   url: "/checkout",
-      //   success: function (res) {
-      //     alert('SUCCESS');
-      //   }
-      // })
+
+      $.ajax({
+        method: "GET",
+        url: "/ownermes",
+        }
     });
 
 
