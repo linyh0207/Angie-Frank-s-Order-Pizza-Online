@@ -64,9 +64,6 @@ const menuRoutes = require("./routes/menu");
 app.use("/customer/menu", menuRoutes(knex));
 
 
-
-
-
 app.listen(PORT, () => {
   console.log("Example app listening on port " + PORT);
 });

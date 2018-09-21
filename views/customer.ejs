@@ -32,60 +32,24 @@
 
   <div class="container">
     <div class="row">
-        <h1>MENU</h1>
-      <div class="col-9"  id = "menuContainer">
-        <!-- <div class="container" style="background-color:grey"> -->
-          <!-- <h1>MENU</h1> -->
-          <div class="card">
-            <img class="card-image-top" src="https://media.istockphoto.com/photos/mediterranean-pizza-picture-id503818102?k=6&m=503818102&s=612x612&w=0&h=MNlzONc3PUBN8H3bDQCewhUySMwfAgiQB8oCzliX25E=">
-            <h5 class="card-title">Cheese Pizza</h5>
-            <p class="card-text">Cheese Pizza Galore! This pizza will give you super powers.</p>
-            <h4>9.99</h4>
-            <form class="form-inline">
-              <span>Quantity</span>
-              <input type="text">
-              <button class="btn btn-outline-secondary" type="submit">Add to Order</button>
-            </form>
-          </div>
-          <div class="card">
-            <img class="card-image-top" src="https://st3.depositphotos.com/6940668/16159/i/1600/depositphotos_161594052-stock-photo-delicious-and-beautiful-pizza.jpg">
-            <h5 class="card-title">Cheese Pizza</h5>
-            <p class="card-text">Cheese Pizza Galore! This pizza will give you super powers.</p>
-            <h4>14.99</h4>
-            <form class="form-inline">
-              <span>Quantity</span>
-              <input type="text">
-              <button class="btn btn-outline-secondary" type="submit">Add to Order</button>
-            </form>
-          </div>
-        <!-- </div> -->
+      <h1>MENU</h1>
+      <div class="col-9" id="menuContainer">
+      
       </div>
       <div class="col-3">
-        <div class="card">
-          <h3>Cart</h3>
-          <div class="card-body">
-            <h5 class="card-title">Cheese Pizza</h5>
-            <h5 class="card-subtitle">Quantity: </h5>
-            <p></p>
-            <h6 class="card-subtitle">Price</h6>
-          </div>
-          <div class="card-body">
-            <h5 class="card-title">Cheese Pizza</h5>
-            <h5 class="card-subtitle">Quantity: </h5>
-            <p></p>
-            <h6 class="card-subtitle">Price</h6>
-          </div>
+        <h3>Cart</h3>
+        <div id='cartContainer' class="card">
         </div>
         <div class="card">
           <div class="card-body">
             <h5 class="card-title">Total: 0.00</h5>
-            <form class="form-inline" id = "checkOut" action= "/checkout" method="POST">
+            <form id= "checkoutbtn" class="form-inline" >
               <input type="submit" value="Checkout">
             </form>
           </div>
         </div>
-        <div class= "card">
-          <div id = "status" hidden = "true" class="card-body">
+        <div class="card">
+          <div id= "status" hidden="true" class="card-body">
             <h4 class="card-title">Order Confirmed</h4>
             <h5 class="card-subtitle">Status</h5>
             <p></p>
@@ -106,8 +70,6 @@
 
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-    crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
     crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
