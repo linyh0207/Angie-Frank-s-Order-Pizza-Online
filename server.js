@@ -54,10 +54,13 @@ app.get("/owner", (req, res) => {
 });
 
 // For click Checkout button
-app.get("/checkout", (req, res) => {
-  // res.render('index') <worked w/o ajax
+// app.get("/checkout", (req, res) => {
+  
+// });
 
-});
+// const addRoutes = require("./routes/cart");
+// app.use("/customer/cart", addRoutes(knex));
+
   
 const menuRoutes = require("./routes/menu");
 app.use("/customer/menu", menuRoutes(knex));
