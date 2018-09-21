@@ -59,9 +59,6 @@ app.get("/checkout", (req, res) => {
 
 });
   
-
-
-
 const menuRoutes = require("./routes/menu");
 app.use("/customer/menu", menuRoutes(knex));
 
