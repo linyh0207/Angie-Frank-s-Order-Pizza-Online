@@ -19,14 +19,19 @@
     });
 
     const createMenu = function (item) {
+      let $col = $('<div>').addClass('col-4');
       let $item = $('<div>').addClass('card');
       let $img = $('<img>').addClass('card-image-top').attr('src',item.url);
-      let $name = $('<h5>').addClass('card-title').text(item.pizza_name);
+      let $name = $('<p>').addClass('card-title').text(item.pizza_name);
       let $des = $('<p>').addClass('card-text').text(item.description);
+<<<<<<< HEAD
       let $price = $('<h4>').text(item.price);
       //need to add class for subtotal 
       //maybe separate the quantity to easy reference
       //handle zero ihnput for quantity
+=======
+      let $price = $('<p>').text(item.price);
+>>>>>>> 26a4767dad37b66063052efeb9d743d296d5b4d4
       let $form = $('<form>').addClass('form-inline');
       let $quantity = $('<span>').text('Quantity');
       let $input = $('<input>').attr('type', 'text').attr('data-add-quantity', item.pizza_name);
@@ -34,12 +39,21 @@
       .attr('data-add-pizza', item.pizza_name)
       .attr('data-add-price', item.price)
       .text('Add to Order');
+<<<<<<< HEAD
       let $errorMsg = $('<div>').addClass('errorMsg').attr('data-add-error', item.pizza_name).attr('hidden','true');
   
       $item.append($img, $name, $des, $price, $form);
       $form.append($quantity, $input, $add, $errorMsg);
     
       return $item;
+=======
+
+      $form.append($quantity, $input, $add);
+      $item.append($img, $name, $des, $price, $form);
+      $col.append($item);
+
+      return $col;
+>>>>>>> 26a4767dad37b66063052efeb9d743d296d5b4d4
     }
 
     const renderMenu = function (items) {
@@ -62,11 +76,16 @@
     
       let $this = $(this);
       let quant = $this.siblings('input[data-add-quantity]').val();
+<<<<<<< HEAD
+=======
+
+>>>>>>> 26a4767dad37b66063052efeb9d743d296d5b4d4
       let $cart = $('<div>').addClass('card-body')
       let $cartName = $('<h5>').addClass('card-title').text($this.data('add-pizza'));
       let $cartQuan = $('<h5>').addClass('card-subtitle').text(`Quantity: ${quant}`);
       let $cartPrice = $('<h6>').addClass('card-subtitle')
       .text('$ '+ ($this.data('add-price')) * quant );
+<<<<<<< HEAD
       
       let errorMsg = $this.next();
      console.log(errorMsg);
@@ -80,6 +99,17 @@
       $this.siblings('input[data-add-quantity]').val('')
       }
    
+=======
+
+      $cart.append($cartName, $cartQuan, $cartPrice)
+      $('#cartContainer').append($cart);
+
+
+
+
+
+
+>>>>>>> 26a4767dad37b66063052efeb9d743d296d5b4d4
       return false;
     })
 
