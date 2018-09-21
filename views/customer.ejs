@@ -50,19 +50,20 @@
         </div>
         <div id="totalcard" class="card">
           <div class="card-body">
-            <p class="card-title">Total: 9.99</p>
-            <form class="form-inline">
-              <input class="btn btn-outline-secondary" type="submit" value="Checkout">
+            <h5 class="card-title">Total: 0.00</h5>
+            <form id= "checkoutbtn" class="form-inline" >
+              <input type="submit" value="Checkout">
             </form>
           </div>
         </div>
-        <div id="confirmedcard" class="card">
-          <div class="card-body">
-            <p class="card-title">Order Confirmed</p>
-            <p class="card-title">Status</p>
-            <p class="card-title">Being Prepared</p>
-            <img src="https://media3.giphy.com/media/3o7bu8sRnYpTOG1p8k/giphy.gif">
-            <p class="card-title">Estimated Wait Time: 0 minutes</p>
+        <div class="card">
+          <div id= "status" hidden="true" class="card-body">
+            <h4 class="card-title">Order Confirmed</h4>
+            <h5 class="card-subtitle">Status</h5>
+            <p></p>
+            <h4 class="card-subtitle">Being Prepared</h4>
+            <p></p>
+            <h5 class="card-subtitle">Estimated Wait Time: 0 minutes</h5>
           </div>
         </div>
       </div>

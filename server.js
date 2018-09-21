@@ -43,13 +43,25 @@ app.get("/", (req, res) => {
   res.render("index");
 });
 
-app.get("/customer", (req, res) => {
+// Customer Page
+app.get("/customer/1", (req, res) => {
   res.render("customer");
 });
 
-app.get("/vendor", (req, res) => {
+// Owner Page
+app.get("/owner", (req, res) => {
   res.render("vendor");
 });
+
+// For click Checkout button
+app.get("/checkout", (req, res) => {
+  // res.render('index') <worked w/o ajax
+
+});
+
+const menuRoutes = require("./routes/menu");
+app.use("/customer/menu", menuRoutes(knex));
+
 
 app.listen(PORT, () => {
   console.log("Example app listening on port " + PORT);
