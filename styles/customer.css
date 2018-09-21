@@ -28,7 +28,7 @@ body div.container div.row div.col-9 div.row div.col-4 div.card img.card-image-t
 body div.container div.row div.col-9 div.row div.col-4 div.card p.card-title {
   font-weight: bold;
 }
-body div.container div.row div.col-9 div.row div.col-4 div.card form.form-inline input#quantity-number {
+body div.container div.row div.col-9 div.row div.col-4 div.card form.form-inline input {
   width: 10%;
   margin: 0.5em;
 }
