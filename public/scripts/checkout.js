@@ -23,6 +23,7 @@
 
 
     const createMenu = function (item) {
+      let $col = $('<div>').addClass('col-4');
       let $item = $('<div>').addClass('card');
       let $img = $('<img>').addClass('card-image-top').attr('src',item.url);
       let $name = $('<h5>').addClass('card-title').text(item.pizza_name);
@@ -35,11 +36,12 @@
       .attr('data-add-pizza', item.pizza_name)
       .attr('data-add-price', item.price)
       .text('Add to Order');
-    
-      $item.append($img, $name, $des, $price, $form);
+
       $form.append($quantity, $input, $add);
-    
-      return $item;
+      $item.append($img, $name, $des, $price, $form);
+      $col.append($item);
+
+      return $col;
     }
 
 
@@ -63,17 +65,17 @@
       let $this = $(this);
 
       let quant = $this.siblings('input[data-add-quantity]').val();
-      
+
       let $cart = $('<div>').addClass('card-body')
       let $cartName = $('<h5>').addClass('card-title').text($this.data('add-pizza'));
       let $cartQuan = $('<h5>').addClass('card-subtitle').text(`Quantity: ${quant}`);
       let $cartPrice = $('<h6>').addClass('card-subtitle')
       .text('$ '+ ($this.data('add-price')) * quant );
-      
+
       $cart.append($cartName, $cartQuan, $cartPrice)
       $('#cartContainer').append($cart);
 
-   
+
 
 
 
