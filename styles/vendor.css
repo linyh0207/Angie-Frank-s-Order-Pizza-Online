@@ -1,3 +1,29 @@
-
+body {
+  background-color: white;
+}
+body nav {
+  background-color: white;
+  height: 100px;
+}
+body nav img {
+  width: 300px;
+  margin-left: 1em;
+}
+body nav form.form-inline input.btn {
+  color: grey;
+  margin: 1em;
+}
+body div.container div.row div.col-12 div.card {
+  margin-bottom: 1em;
+}
+body div.container div.row div.col-12 div.card p {
+  margin: 1em;
+}
+body div.container div.row div.col-12 div.card form input {
+  margin: 1em;
+}
+body div.container div.row div.col-12 div.card {
+  margin-bottom: 1em;
+}
 
 /*# sourceMappingURL=vendor.css.map */
