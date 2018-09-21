@@ -37,7 +37,7 @@ body div.container div.row div.col-3 div#checkoutcard div.card-body img {
   margin: 0.5em;
 }
 body div.container div.row div.col-3 div#confirmedcard div.card-body img {
-  width: 50%;
+  width: 100%;
 }
 body footer.footer {
   background-color: #cecece;
