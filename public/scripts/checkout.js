@@ -10,7 +10,7 @@
       $.ajax({
         method: "GET",
         url: "/ownermes",
-        }
+        });
     });
 
 
