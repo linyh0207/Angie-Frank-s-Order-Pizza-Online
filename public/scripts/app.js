@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-// $(() => {
-=======
 // $(function () {
->>>>>>> c90fea935473eeb00ff3c750dfd9f1481153e5f1
 //   $.ajax({
 //     method: "GET",
 //     url: "/api/users"
@@ -12,8 +8,6 @@
 //     }
 //   });;
 // });
-<<<<<<< HEAD
-=======
 
 $(function () {
   //id NOT set yet
@@ -31,4 +25,3 @@ $(function () {
     })
   });
 });
->>>>>>> c90fea935473eeb00ff3c750dfd9f1481153e5f1
