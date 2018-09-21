@@ -1,3 +1,6 @@
+// const accountSid = 'ACf289a1a36a762b5ba5340d95c2c01c70'
+// const authToken = 'c36a648b2a9925367995cf60121d06ec'
+// const client = require ('twilio')(accountSid, authToken);
 
 
   $(function () {
@@ -5,8 +8,18 @@
   //For checkout button
     let $button = $('#checkoutbtn')
     $button.on('submit', function (e) {
+      console.log("BUTTON_CLICKED!")
+
+    //   client.messages.create({
+    //     to: '+17789961608' ,
+    //     from: '+16138016248' ,
+    //     body: 'Hello'
+    // }).then((message)=> console.log(message.sid, "SMS SENT!"));
+    
+
       e.preventDefault();
       $('#status').removeAttr('hidden');
+      
       // NEED /checkout page in html!
       // $.ajax({
       //   method: "GET",
