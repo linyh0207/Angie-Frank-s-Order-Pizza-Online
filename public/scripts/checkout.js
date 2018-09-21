@@ -26,9 +26,9 @@
       let $col = $('<div>').addClass('col-4');
       let $item = $('<div>').addClass('card');
       let $img = $('<img>').addClass('card-image-top').attr('src',item.url);
-      let $name = $('<h5>').addClass('card-title').text(item.pizza_name);
+      let $name = $('<p>').addClass('card-title').text(item.pizza_name);
       let $des = $('<p>').addClass('card-text').text(item.description);
-      let $price = $('<h4>').text(item.price);
+      let $price = $('<p>').text(item.price);
       let $form = $('<form>').addClass('form-inline');
       let $quantity = $('<span>').text('Quantity');
       let $input = $('<input>').attr('type', 'text').attr('data-add-quantity', item.pizza_name);
