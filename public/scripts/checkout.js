@@ -13,11 +13,6 @@
         });
     });
 
-
-
-
-
-
     const createMenu = function (item) {
       let $col = $('<div>').addClass('col-4');
       let $item = $('<div>').addClass('card');
@@ -74,15 +69,8 @@
       $cart.append($cartName, $img, $cartQuan, $cartPrice)
       $('#cartContainer').append($cart);
 
-
-
-
-
-
       return false;
     })
-
-
 
   });
 
