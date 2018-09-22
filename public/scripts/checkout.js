@@ -69,6 +69,12 @@
       $cart.append($cartName, $img, $cartQuan, $cartPrice)
       $('#cartContainer').append($cart);
 
+      let $total = $('#total');
+      let counter = 0;
+      let price = ($this.data('add-price') * quant);
+      let total = counter += price
+      $total.text('Total: $ ' + total);
+
       return false;
     })
 
