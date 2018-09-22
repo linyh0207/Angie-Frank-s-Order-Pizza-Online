@@ -89,22 +89,24 @@ $(function () {
                 });
         };
 
-        $.ajax({
-            method: "GET",
-            url: "/customer/cart"
-        }).done((carts) => {
-            for (item of carts){
-                let $cart = $('<div>').addClass('card-body')
-                let $cartName = $('<h5>').addClass('card-title').text(item.pizza_name);
-                let $cartQuan = $('<h5>').addClass('card-subtitle').text(item.qty);
-                let $cartPrice = $('<h6>').addClass('card-subtitle').text(item.sub_total);
-                $('#cartContainer').append($cart);
-                $cart.append($cartName, $cartQuan, $cartPrice)
-                };
-        });
-
          return false;
     });
+
+    $.ajax({
+        method: "GET",
+        url: "/customer/cart"
+    }).done((carts) => {
+        for (item of carts){
+            let $cart = $('<div>').addClass('card-body')
+            let $cartName = $('<h5>').addClass('card-title').text(item.pizza_name);
+            let $cartQuan = $('<h5>').addClass('card-subtitle').text(item.qty);
+            let $cartPrice = $('<h6>').addClass('card-subtitle').text(item.sub_total);
+            $('#cartContainer').append($cart);
+            $cart.append($cartName, $cartQuan, $cartPrice)
+            };
+    });
+
+
     })
 
 
