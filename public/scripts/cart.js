@@ -1,31 +1,34 @@
 $(function () {
     //Create, Render and Load Menu Items -- Start
-    const createMenu = function (item) {
-      let $item = $('<div>').addClass('card');
-      let $img = $('<img>').addClass('card-image-top').attr('src',item.url);
-      let $name = $('<p>').addClass('card-title').text(item.pizza_name);
-      let $des = $('<p>').addClass('card-text').text(item.description);
-      let $price = $('<h4>').text(item.price);
-      let $form = $('<form>').addClass('form-inline');
-      let $quantity = $('<span>').text('Quantity');
-      let $input = $('<input>').attr('type', 'text').attr('data-add-quantity', item.pizza_name);
-      let $add = $('<button>').addClass('btn btn-outline-secondary').attr('type', 'submit')
-      .attr('data-add-pizza', item.pizza_name)
-      .attr('data-add-price', item.price)
-      .attr('data-add-id', item.id)
-      .text('Add to Order');
-      let $errorMsg = $('<div>').addClass('errorMsg').attr('data-add-error', item.pizza_name).attr('hidden','true');
-  
-      $item.append($img, $name, $des, $price, $form);
-      $form.append($quantity, $input, $add, $errorMsg);
-    
-      return $item;
-    }
+const createMenu = function (item) {
+  let $col = $('<div>').addClass('col-4');
+  let $item = $('<div>').addClass('card');
+  let $img = $('<img>').addClass('card-image-top').attr('src', item.url);
+  let $name = $('<p>').addClass('card-title').text(item.pizza_name);
+  let $des = $('<p>').addClass('card-text').text(item.description);
+  let $price = $('<p>').text(item.price);
+  let $form = $('<form>').addClass('form-inline');
+  let $quantity = $('<span>').text('Quantity');
+  let $input = $('<input>').attr('type', 'text').attr('data-add-quantity', item.pizza_name);
+  let $add = $('<button>').addClass('btn btn-outline-secondary').attr('type', 'submit')
+    .attr('data-add-pizza', item.pizza_name)
+    .attr('data-add-price', item.price)
+    .attr('data-add-url', item.url)
+    .attr('data-add-id', item.id)
+    .text('Add to Order');
+  let $errorMsg = $('<div>').addClass('errorMsg').attr('data-add-error', item.pizza_name).attr('hidden', 'true');
+
+  $form.append($quantity, $input, $add, $errorMsg);
+  $item.append($img, $name, $des, $price, $form);
+  $col.append($item);
+
+  return $col;
+}
 
     const renderMenu = function (items) {
       items.forEach(function(pizza) {
         $('#menuContainer').prepend(createMenu(pizza));
-      }) 
+      })
     }
 
     const loadMenu = function () {
@@ -50,7 +53,7 @@ $(function () {
     }
     const renderCart = function (shoppingItems) {
         shoppingItems.forEach(function(shoppingItem){
-        $('#cartContainer').append(createCartElement(shoppingItem)); 
+        $('#cartContainer').append(createCartElement(shoppingItem));
         })
     }
     // Create and Render Shopping Cart -- Ends
@@ -58,7 +61,7 @@ $(function () {
 
     //Add a item to shopping cart when valid quantity enter and click the add button-- Start
     let $menuContainer = $('#menuContainer');
-    
+
     $menuContainer.on('click', '*[data-add-pizza]', function(event) {
         event.preventDefault();
         let $this = $(this);
@@ -70,9 +73,9 @@ $(function () {
             'qty': quant,
             'sub_total': $subTotal
         }
-    
+
         if(!quant || quant === '0'){
-            errorMsg.removeAttr('hidden').text('invalid quantity');   
+            errorMsg.removeAttr('hidden').text('invalid quantity');
                 } else {
                 $.ajax
                 ({
@@ -111,7 +114,7 @@ $(function () {
         $.ajax('/customer/cart', {method: 'GET'})
         .then(function(shoppingItems){
             renderCart(shoppingItems);
-        }); 
+        });
     };
     loadCart();
     //Load shopping cart -- End
