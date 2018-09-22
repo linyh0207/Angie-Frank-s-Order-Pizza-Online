@@ -152,8 +152,6 @@ const createMenu = function (item) {
     console.log('CHEEEEEEEEEEEEEEEEEEEEECKOUT')
     })
 
-    });
-    //Expand checkout details when click checkout button -- End
-    });
-
 });
+    //Expand checkout details when click checkout button -- End
+
