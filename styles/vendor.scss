@@ -65,17 +65,32 @@ body {
     background-color: rgb(206, 206, 206);
     height: 150px;
 
-    div.container {
-      margin: 0px;
-
-      img.footerlogo {
-        width: 200px;
-        margin: 30px;
+    div.containerfooter {
+      width: 100%;
+      margin: 0;
+      padding: 0;
+        div.row {
+          div.col-8 {
+            img.footerlogo {
+              width: 200px;
+              margin: 35px;
+              }
+            }
+          div.col-2 {
+              p {
+                text-align: right;
+                color: white;
+                margin-top: 22px;
+              }
+            }
+          div.col-2 {
+            img.footermap {
+              margin-right: 10px;
+              margin-top: 26px;
+              width: 170px;
+          }
+        }
       }
-
-      img.footermap {
-        width: 150px;
-      }
-    }
+    }  
   }
 }
