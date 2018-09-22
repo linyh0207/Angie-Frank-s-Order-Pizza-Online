@@ -61,7 +61,6 @@ $(function () {
     
     $menuContainer.on('click', '*[data-add-pizza]', function(event) {
         event.preventDefault();
-    
         let $this = $(this);
         let quant = $this.siblings('input[data-add-quantity]').val();
         let errorMsg = $this.next();
@@ -75,16 +74,34 @@ $(function () {
         if(!quant || quant === '0'){
             errorMsg.removeAttr('hidden').text('invalid quantity');   
                 } else {
-                $.ajax({
-                method: "POST",
-                url: "/customer/cart",
-                data: formData
-                    }).then (function () {
-                        errorMsg.empty();
-                        $this.siblings('input[data-add-quantity]').val('');
-                        $('#cartContainer').empty();
-                        return $.ajax('/customer/cart');
-                    }).then(renderCart);
+                $.ajax
+                ({
+                  method: "POST",
+                  url: "/customer/cart",
+                  data: formData,
+                  success: function(result){
+                    alert("in then function")
+                    errorMsg.empty();
+                    $this.siblings('input[data-add-quantity]').val('');
+                    $('#cartContainer').empty();
+                    $.ajax
+                    ({
+                      method:'get',
+                      url:'/customer/cart',
+                      success: function(result){
+                        console.log("it was success");
+                        renderCart(result);
+                      },
+                      error: function(err){
+                        alert("We are in error")
+                        console.log("there was an error");
+                      }
+                    })
+                },
+                error: function(err){
+                  alert("we are in error", err);
+                }
+              });
         };
     });
     //Add a item to shopping cart when valid quantity enter and click the add button -- End

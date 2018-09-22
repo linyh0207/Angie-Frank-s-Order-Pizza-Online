@@ -16,22 +16,16 @@ $(function () {
     //       console.log('no item to checkout');
     //       } else{
     
-    let formData = $('#cusNumber')
+    let formData = {'phoneNumber': $('#cusNumber').val()}
 
-    $.ajax({
-        method:"POST",
-        url:"checkout",
-        data
-    })
-
-        
-
-
-
-
-
-
-
-    });
+      $.ajax({
+          method:"POST",
+          url:"/customer/checkout",
+          data: formData
+      }).then(function() {
+        console.log('CHEEEEEEEEEEEEEEEEEEEEECKOUT')
+      })
+  
+   });
     //Expand checkout details when click checkout button -- End
 });
