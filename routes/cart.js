@@ -5,6 +5,16 @@ const router  = express.Router();
 
 module.exports = (knex) => {
 
+  router.get("/", function(req, res) {
+    knex('cart')
+    .join('menu', 'menu.id', 'cart.menu_id')
+    .select('pizza_name','qty','sub_total')
+    .then((results) =>{
+      res.json(results);
+    });
+  });
+
+
   router.post("/", (req, res) => {
     knex('cart')
     .insert({

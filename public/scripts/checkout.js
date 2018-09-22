@@ -63,14 +63,8 @@ $(function () {
     
       let $this = $(this);
       let quant = $this.siblings('input[data-add-quantity]').val();
-      let $cart = $('<div>').addClass('card-body')
-      let $cartName = $('<h5>').addClass('card-title').text($this.data('add-pizza'));
-      let $cartQuan = $('<h5>').addClass('card-subtitle').text(`Quantity: ${quant}`);
-      let $cartPrice = $('<h6>').addClass('card-subtitle')
-      .text('$ '+ ($this.data('add-price')) * quant );
 
 
-      
       let errorMsg = $this.next();
       let $subTotal = ($this.data('add-price')) * quant
       let formData = {
@@ -79,9 +73,6 @@ $(function () {
           'sub_total': $subTotal
       }
 
-
-
-      
       if(!quant || quant === '0'){
           errorMsg.removeAttr('hidden').text('invalid quantity');
         } else {
@@ -91,36 +82,29 @@ $(function () {
             data: formData
                 }).then (function () {
                     errorMsg.empty();
-                    console.log('haha');
                     $this.siblings('input[data-add-quantity]').val('');
-                    $cart.append($cartName, $cartQuan, $cartPrice);
-                    $('#cartContainer').append($cart);
-                    // return $.ajax('/customer/cart');
+                    return $.ajax('/customer/cart');
                 }).catch((err) => {
                     console.log('err',err)
                 });
         };
-      
 
-      return false;
+        $.ajax({
+            method: "GET",
+            url: "/customer/cart"
+        }).done((carts) => {
+            for (item of carts){
+                let $cart = $('<div>').addClass('card-body')
+                let $cartName = $('<h5>').addClass('card-title').text(item.pizza_name);
+                let $cartQuan = $('<h5>').addClass('card-subtitle').text(item.qty);
+                let $cartPrice = $('<h6>').addClass('card-subtitle').text(item.sub_total);
+                $('#cartContainer').append($cart);
+                $cart.append($cartName, $cartQuan, $cartPrice)
+                };
+        });
+
+         return false;
+    });
     })
-
-  //For checkout button
-  // let $button = $('#checkoutbtn')
-  // $button.on('submit', function (e) {
-  //   e.preventDefault();
-  //   $('#status').removeAttr('hidden');
-    // $.ajax({
-    //   method: "POST",
-    //   url: "/checkout",
-    //   success: function (res) {
-    //     alert('SUCCESS');
-    //   }
-  //   })
-
-
-    // NEED error mesage for empty shopping cart
-  // });
-});
 
 
