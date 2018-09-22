@@ -58,8 +58,8 @@ app.get("/owner", (req, res) => {
   
 // });
 
-// const addRoutes = require("./routes/cart");
-// app.use("/customer/cart", addRoutes(knex));
+const addRoutes = require("./routes/cart");
+app.use("/customer/cart", addRoutes(knex));
 
   
 const menuRoutes = require("./routes/menu");

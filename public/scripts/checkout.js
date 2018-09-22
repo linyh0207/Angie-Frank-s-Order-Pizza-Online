@@ -19,7 +19,7 @@ $(function () {
     });
 
     const createMenu = function (item) {
-      let $item = $('<div>').addClass('card').attr('data-add-id', item.id);
+      let $item = $('<div>').addClass('card');
       let $img = $('<img>').addClass('card-image-top').attr('src',item.url);
       let $name = $('<p>').addClass('card-title').text(item.pizza_name);
       let $des = $('<p>').addClass('card-text').text(item.description);
@@ -33,6 +33,7 @@ $(function () {
       let $add = $('<button>').addClass('btn btn-outline-secondary').attr('type', 'submit')
       .attr('data-add-pizza', item.pizza_name)
       .attr('data-add-price', item.price)
+      .attr('data-add-id', item.id)
       .text('Add to Order');
       let $errorMsg = $('<div>').addClass('errorMsg').attr('data-add-error', item.pizza_name).attr('hidden','true');
   
@@ -67,36 +68,39 @@ $(function () {
       let $cartQuan = $('<h5>').addClass('card-subtitle').text(`Quantity: ${quant}`);
       let $cartPrice = $('<h6>').addClass('card-subtitle')
       .text('$ '+ ($this.data('add-price')) * quant );
+
+
       
       let errorMsg = $this.next();
-
       let $subTotal = ($this.data('add-price')) * quant
       let formData = {
-          'menu_id': $('data-add-id'),
+          'menu_id': $this.data('add-id'),
           'qty': quant,
           'sub_total': $subTotal
       }
 
 
+
+      
       if(!quant || quant === '0'){
           errorMsg.removeAttr('hidden').text('invalid quantity');
-      } else{
-        $.ajax({
-          method: "POST",
-          url: "/customer/cart",
-          data: formData
-        }).then (function () {
-          $cart.append($cartName, $cartQuan, $cartPrice)
-          $('#cartContainer').append($cart);
-          errorMsg.empty();
-          $this.siblings('input[data-add-quantity]').val('')
-        })
-      }
-   
-
-
-
-
+        } else {
+            $.ajax({
+            method: "POST",
+            url: "/customer/cart",
+            data: formData
+                }).then (function () {
+                    errorMsg.empty();
+                    console.log('haha');
+                    $this.siblings('input[data-add-quantity]').val('');
+                    $cart.append($cartName, $cartQuan, $cartPrice);
+                    $('#cartContainer').append($cart);
+                    // return $.ajax('/customer/cart');
+                }).catch((err) => {
+                    console.log('err',err)
+                });
+        };
+      
 
       return false;
     })

@@ -8,9 +8,9 @@ module.exports = (knex) => {
   router.post("/", (req, res) => {
     knex('cart')
     .insert({
-      'menu_id': menu.id,
-      'qty': qty,
-      'sub_total': sub_total
+      'menu_id': req.body.menu_id,
+      'qty': req.body.qty,
+      'sub_total': req.body.sub_total
     })
     .returning('*')
     .asCallback((err, createdRecords) => {
