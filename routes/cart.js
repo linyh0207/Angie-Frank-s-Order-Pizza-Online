@@ -28,10 +28,11 @@ module.exports = (knex) => {
           return console.error("error running handler", err);
       } else{
       const createdRecord = createdRecords[0];
+      res.json(createdRecords)
         console.log('Created Record is', createdRecord);
       }
-      knex.destroy(); 
    });
+     
   });
   return router;
 }
