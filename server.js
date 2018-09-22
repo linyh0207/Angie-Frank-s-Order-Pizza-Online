@@ -41,7 +41,7 @@ app.use("/styles", sass({
 app.use(express.static("public"));
 
 // Mount all resource routes
-app.use("/api/users", usersRoutes(knex));
+// app.use("/api/users", usersRoutes(knex));
 
 // Home page
 app.get("/", (req, res) => {
@@ -59,10 +59,16 @@ app.get("/owner", (req, res) => {
 });
 
 // For click Checkout button
-app.get("/checkout", (req, res) => {
-  // res.render('index') <worked w/o ajax
+// app.get("/checkout", (req, res) => {
 
-});
+// });
+
+
+const checkoutRoutes = require("./routes/checkout");
+app.use("/customer/checkout", checkoutRoutes(knex));
+
+const addRoutes = require("./routes/cart");
+app.use("/customer/cart", addRoutes(knex));
 
 app.get('/ownermes', function (req, res) {
     client.messages.create({
@@ -79,6 +85,7 @@ app.get('/customermes', function (req, res) {
     body: 'You have an order ready for pickup!'
   }).then((message) => console.log(message.sid, "SMS SENT!"));
 });
+
 
 const menuRoutes = require("./routes/menu");
 app.use("/customer/menu", menuRoutes(knex));
