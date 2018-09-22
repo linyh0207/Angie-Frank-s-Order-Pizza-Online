@@ -24,31 +24,30 @@
 
       // NEED error mesage for empty shopping cart
 
-    const createMenu = function (item) {
-      let $item = $('<div>').addClass('card');
-      let $img = $('<img>').addClass('card-image-top').attr('src',item.url);
-      let $name = $('<p>').addClass('card-title').text(item.pizza_name);
-      let $des = $('<p>').addClass('card-text').text(item.description);
-      let $price = $('<h4>').text(item.price);
-      //need to add class for subtotal
-      //maybe separate the quantity to easy reference
-      //handle zero ihnput for quantity
-      let $form = $('<form>').addClass('form-inline');
-      let $quantity = $('<span>').text('Quantity');
-      let $input = $('<input>').attr('type', 'text').attr('data-add-quantity', item.pizza_name);
-      let $add = $('<button>').addClass('btn btn-outline-secondary').attr('type', 'submit')
-      .attr('data-add-pizza', item.pizza_name)
-      .attr('data-add-price', item.price)
-      .attr('data-add-url', item.url)
-      .attr('data-add-id', item.id)
-      .text('Add to Order');
-      let $errorMsg = $('<div>').addClass('errorMsg').attr('data-add-error', item.pizza_name).attr('hidden','true');
+const createMenu = function (item) {
+  let $col = $('<div>').addClass('col-4');
+  let $item = $('<div>').addClass('card');
+  let $img = $('<img>').addClass('card-image-top').attr('src', item.url);
+  let $name = $('<p>').addClass('card-title').text(item.pizza_name);
+  let $des = $('<p>').addClass('card-text').text(item.description);
+  let $price = $('<p>').text(item.price);
+  let $form = $('<form>').addClass('form-inline');
+  let $quantity = $('<span>').text('Quantity');
+  let $input = $('<input>').attr('type', 'text').attr('data-add-quantity', item.pizza_name);
+  let $add = $('<button>').addClass('btn btn-outline-secondary').attr('type', 'submit')
+    .attr('data-add-pizza', item.pizza_name)
+    .attr('data-add-price', item.price)
+    .attr('data-add-url', item.url)
+    .attr('data-add-id', item.id)
+    .text('Add to Order');
+  let $errorMsg = $('<div>').addClass('errorMsg').attr('data-add-error', item.pizza_name).attr('hidden', 'true');
 
-      $item.append($img, $name, $des, $price, $form);
-      $form.append($quantity, $input, $add, $errorMsg);
+  $form.append($quantity, $input, $add, $errorMsg);
+  $item.append($img, $name, $des, $price, $form);
+  $col.append($item);
 
-      return $item;
-    }
+  return $col;
+}
 
     const renderMenu = function (items) {
       items.forEach(function(pizza) {
