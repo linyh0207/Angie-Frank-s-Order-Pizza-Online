@@ -60,13 +60,12 @@ app.get("/owner", (req, res) => {
 
 // For click Checkout button
 // app.get("/checkout", (req, res) => {
-  
+
 // });
 
 const addRoutes = require("./routes/cart");
 app.use("/customer/cart", addRoutes(knex));
 
-<<<<<<< HEAD
 app.get('/ownermes', function (req, res) {
     client.messages.create({
       to: '+16476078485',
@@ -83,9 +82,7 @@ app.get('/customermes', function (req, res) {
   }).then((message) => console.log(message.sid, "SMS SENT!"));
 });
 
-=======
-  
->>>>>>> 6adf9263d43363926b58a6f8c7d35ec6a5549df8
+
 const menuRoutes = require("./routes/menu");
 app.use("/customer/menu", menuRoutes(knex));
 

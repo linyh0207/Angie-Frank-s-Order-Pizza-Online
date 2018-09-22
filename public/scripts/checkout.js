@@ -1,22 +1,17 @@
-<<<<<<< HEAD
   $(function () {
-=======
-$(function () {
->>>>>>> 6adf9263d43363926b58a6f8c7d35ec6a5549df8
-  //id NOT set yet
-  //For checkout button
+
     let $button = $('#checkoutbtn')
     $button.on('submit', function (e) {
       console.log("BUTTON_CLICKED!")
       e.preventDefault();
       $('#status').removeAttr('hidden');
-<<<<<<< HEAD
 
       $.ajax({
         method: "GET",
         url: "/ownermes",
         });
-=======
+    });
+
       // NEED /checkout page in html!
       // $.ajax({
       //   method: "GET",
@@ -28,8 +23,6 @@ $(function () {
 
 
       // NEED error mesage for empty shopping cart
->>>>>>> 6adf9263d43363926b58a6f8c7d35ec6a5549df8
-    });
 
     const createMenu = function (item) {
       let $item = $('<div>').addClass('card');
@@ -46,11 +39,8 @@ $(function () {
       let $add = $('<button>').addClass('btn btn-outline-secondary').attr('type', 'submit')
       .attr('data-add-pizza', item.pizza_name)
       .attr('data-add-price', item.price)
-<<<<<<< HEAD
       .attr('data-add-url', item.url)
-=======
       .attr('data-add-id', item.id)
->>>>>>> 6adf9263d43363926b58a6f8c7d35ec6a5549df8
       .text('Add to Order');
       let $errorMsg = $('<div>').addClass('errorMsg').attr('data-add-error', item.pizza_name).attr('hidden','true');
 
@@ -94,7 +84,6 @@ $(function () {
 
 
       return false;
-    })
 
   });
 
@@ -121,17 +110,17 @@ $(function () {
                 }).catch((err) => {
                     console.log('err',err)
                 });
+            return false;
         };
 
-         return false;
-    });
+
 
     $.ajax({
         method: "GET",
         url: "/customer/cart"
     }).done((carts) => {
         for (item of carts){
-            let $cart = $('<div>').addClass('card-body')
+            let $cart = $('<div>').addClass('card-body');
             let $cartName = $('<h5>').addClass('card-title').text(item.pizza_name);
             let $cartQuan = $('<h5>').addClass('card-subtitle').text(item.qty);
             let $cartPrice = $('<h6>').addClass('card-subtitle').text(item.sub_total);
@@ -139,7 +128,5 @@ $(function () {
             $cart.append($cartName, $cartQuan, $cartPrice)
             };
     });
-
-
-})
+  });
 
