@@ -60,6 +60,7 @@ $(function () {
 
     let $menuContainer = $('#menuContainer');
     $menuContainer.on('click', '*[data-add-pizza]', function(event) {
+        event.preventDefault();
     
       let $this = $(this);
       let quant = $this.siblings('input[data-add-quantity]').val();
@@ -86,27 +87,35 @@ $(function () {
                     return $.ajax('/customer/cart');
                 }).catch((err) => {
                     console.log('err',err)
-                });
+                })
         };
 
-         return false;
+    
     });
 
-    $.ajax({
-        method: "GET",
-        url: "/customer/cart"
-    }).done((carts) => {
-        for (item of carts){
-            let $cart = $('<div>').addClass('card-body')
-            let $cartName = $('<h5>').addClass('card-title').text(item.pizza_name);
-            let $cartQuan = $('<h5>').addClass('card-subtitle').text(item.qty);
-            let $cartPrice = $('<h6>').addClass('card-subtitle').text(item.sub_total);
-            $('#cartContainer').append($cart);
-            $cart.append($cartName, $cartQuan, $cartPrice)
+    function loadCart(){
+        $.ajax({
+            method: "GET",
+            url: "/customer/cart"
+        }).done((carts) => {
+            for (item of carts){
+                let $cart = $('<div>').addClass('card-body')
+                let $cartName = $('<h5>').addClass('card-title').text(item.pizza_name);
+                let $cartQuan = $('<h5>').addClass('card-subtitle').text(item.qty);
+                let $cartPrice = $('<h6>').addClass('card-subtitle').text(item.sub_total);
+                $('#cartContainer').append($cart);
+                $cart.append($cartName, $cartQuan, $cartPrice)
             };
-    });
+        }); 
+    };
+
+    loadCart();
+
+});
 
 
-    })
+
+
+
 
 
