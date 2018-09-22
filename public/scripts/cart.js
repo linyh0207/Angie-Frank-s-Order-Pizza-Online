@@ -63,6 +63,7 @@ const createMenu = function (item) {
     let $menuContainer = $('#menuContainer');
 
     $menuContainer.on('click', '*[data-add-pizza]', function(event) {
+      console.log('Button clicked')
         event.preventDefault();
         let $this = $(this);
         let quant = $this.siblings('input[data-add-quantity]').val();
