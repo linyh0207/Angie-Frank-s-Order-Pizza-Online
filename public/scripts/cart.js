@@ -82,6 +82,7 @@ $(function () {
                     }).then (function () {
                         errorMsg.empty();
                         $this.siblings('input[data-add-quantity]').val('');
+                        $('#cartContainer').empty();
                         return $.ajax('/customer/cart');
                     }).then(renderCart);
         };
@@ -91,7 +92,7 @@ $(function () {
     //Load shopping cart -- Start
     const loadCart = function (){
         $.ajax('/customer/cart', {method: 'GET'})
-        .then(function(shoppintItems){
+        .then(function(shoppingItems){
             renderCart(shoppingItems);
         }); 
     };
