@@ -14,7 +14,6 @@ $(function () {
       //   }
       // })
 
-
       // NEED error mesage for empty shopping cart
     });
 
@@ -62,53 +61,69 @@ $(function () {
     $menuContainer.on('click', '*[data-add-pizza]', function(event) {
         event.preventDefault();
     
-      let $this = $(this);
-      let quant = $this.siblings('input[data-add-quantity]').val();
+        let $this = $(this);
+        let quant = $this.siblings('input[data-add-quantity]').val();
+        let errorMsg = $this.next();
+        let $subTotal = ($this.data('add-price')) * quant
+        let formData = {
+            'menu_id': $this.data('add-id'),
+            'qty': quant,
+            'sub_total': $subTotal
+        }
+        
+        const createCartElement = function (shoppingItem){
+            let $cart = $('<div>').addClass('card-body')
+            let $cartName = $('<h5>').addClass('card-title').text(shoppingItem.pizza_name);
+            let $cartQuan = $('<h5>').addClass('card-subtitle').text(shoppingItem.qty);
+            let $cartPrice = $('<h6>').addClass('card-subtitle').text(shoppingItem.sub_total);
+            $cart.append($cartName, $cartQuan, $cartPrice)
+            return $cart;
+        }
 
+        const renderCart = function (shoppingItems) {
+            console.log(shoppingItems);
+            shoppingItems.forEach(function(shoppingItem){
 
-      let errorMsg = $this.next();
-      let $subTotal = ($this.data('add-price')) * quant
-      let formData = {
-          'menu_id': $this.data('add-id'),
-          'qty': quant,
-          'sub_total': $subTotal
-      }
+                $('#cartContainer').append(createCartElement(shoppingItem));
+                console.log(shoppingItem);
+            })
+        }
 
-      if(!quant || quant === '0'){
-          errorMsg.removeAttr('hidden').text('invalid quantity');
-        } else {
-            $.ajax({
-            method: "POST",
-            url: "/customer/cart",
-            data: formData
-                }).then (function () {
-                    errorMsg.empty();
-                    $this.siblings('input[data-add-quantity]').val('');
-                    return $.ajax('/customer/cart');
-                }).catch((err) => {
-                    console.log('err',err)
-                })
+        if(!quant || quant === '0'){
+            errorMsg.removeAttr('hidden').text('invalid quantity');   
+                } else {
+                $.ajax({
+                method: "POST",
+                url: "/customer/cart",
+                data: formData
+                    }).then (function () {
+                        errorMsg.empty();
+                        $this.siblings('input[data-add-quantity]').val('');
+                        return $.ajax('/customer/cart');
+                    }).then(renderCart);
+                    
+                    // .catch((err) => {
+                    //     console.log('err',err)
+                    // })
         };
 
-    
+      
     });
 
-    function loadCart(){
-        $.ajax({
-            method: "GET",
-            url: "/customer/cart"
-        }).done((carts) => {
-            for (item of carts){
-                let $cart = $('<div>').addClass('card-body')
-                let $cartName = $('<h5>').addClass('card-title').text(item.pizza_name);
-                let $cartQuan = $('<h5>').addClass('card-subtitle').text(item.qty);
-                let $cartPrice = $('<h6>').addClass('card-subtitle').text(item.sub_total);
-                $('#cartContainer').append($cart);
-                $cart.append($cartName, $cartQuan, $cartPrice)
-            };
+    const loadCart = function (){
+        $.ajax('/customer/cart', {method: 'GET'})
+        .then(function(shoppintItems){
+            renderCart(shoppingItems);
+            // for (item of carts){
+            //     let $cart = $('<div>').addClass('card-body')
+            //     let $cartName = $('<h5>').addClass('card-title').text(item.pizza_name);
+            //     let $cartQuan = $('<h5>').addClass('card-subtitle').text(item.qty);
+            //     let $cartPrice = $('<h6>').addClass('card-subtitle').text(item.sub_total);
+            //     $('#cartContainer').append($cart);
+            //     $cart.append($cartName, $cartQuan, $cartPrice)
+            // };
         }); 
     };
-
     loadCart();
 
 });
@@ -117,5 +132,21 @@ $(function () {
 
 
 
+
+// function renderCart(items){
+//     for (item of carts){
+//         $('#cartContainer').append(createCartElement(item));
+//     }
+// }
+
+
+// function createCartElement(item){
+//     let $cart = $('<div>').addClass('card-body')
+//     let $cartName = $('<h5>').addClass('card-title').text(item.pizza_name);
+//     let $cartQuan = $('<h5>').addClass('card-subtitle').text(item.qty);
+//     let $cartPrice = $('<h6>').addClass('card-subtitle').text(item.sub_total);
+//     $cart.append($cartName, $cartQuan, $cartPrice)
+//     return $cart;
+// }
 
 

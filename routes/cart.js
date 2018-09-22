@@ -14,7 +14,6 @@ module.exports = (knex) => {
     });
   });
 
-
   router.post("/", (req, res) => {
     knex('cart')
     .insert({
