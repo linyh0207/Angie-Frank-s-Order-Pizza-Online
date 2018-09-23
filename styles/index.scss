@@ -38,23 +38,21 @@ body{
 
         video {
           position: relative;
-          width: 100%;
-          height: 100%;
+          margin: auto;
+          width: 90%;
+          height: 70%;
         }
 
         img {
           position: absolute;
-          top: 410px;
-          right: 250px;
-          height: 200px;
-          width: 850px;
-          border: 8px solid black;
+          top: 356px;
+          right: 285px;
+          width: 880px;
           @media screen and (max-width: 1000px) {
             top: 210px;
             right: 150px;
             height: 100px;
             width: 650px;
-            border: 8px solid black;
           }
         }
       }
