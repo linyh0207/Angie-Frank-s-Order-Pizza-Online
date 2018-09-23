@@ -17,7 +17,7 @@ module.exports = (knex) => {
   router.post("/", (req, res) => {
     
     const createOrderRecord = function (phoneNum) {
-      knex('orders')
+      return knex('orders')
       .insert({
         'phone' : parseInt(phoneNum),
         'status': 'preparing'
@@ -25,23 +25,23 @@ module.exports = (knex) => {
     }
     
     const getCartItems = function () {
-      knex('cart')
+      return knex('cart')
       .select('*')
     }
 
-    const getOrderId = function () {
-      knex('orders')
+    const getOrderId = function (num) {
+      return knex('orders')
       .select('*')
-      .where({phone: req.body.phoneNumber})
+      .where("phone", num)
     }
 
     const createLineItems = function (lineItemsToCreate) {
-      knex('orderline')
+      return knex('orderline')
       .insert(lineItemsToCreate)
     }
 
     const deleteCartItems = function () {
-      knex('cart')
+      return knex('cart')
       .del()
     }    
     
@@ -49,11 +49,14 @@ module.exports = (knex) => {
       const orderPrms = createOrderRecord(phoneNum);
       const cartItemsPrms = getCartItems();
       
+      
 
       const order = await orderPrms;
-      const orderIdPrms = getOrderId(order);
+      const orderIdPrms = getOrderId(req.body.phoneNumber);
       const cartItems = await cartItemsPrms;
       const orderId = await orderIdPrms;
+
+      console.log(getOrderId(req.body.phoneNumber))
 
       const lineItemsToCreate = cartItems.map(cartItem => ({
         'id': undefined,
@@ -63,6 +66,8 @@ module.exports = (knex) => {
         'total_price': cartItem.sub_total
       }));
     
+      console.log(lineItemsToCreate);
+
       const deleteCartItemsPrms = deleteCartItems();
     
       const orderlineItem = await createLineItems(lineItemsToCreate);
