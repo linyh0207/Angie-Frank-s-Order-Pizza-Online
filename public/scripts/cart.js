@@ -60,7 +60,7 @@ const createMenu = function (item) {
       total = total += parseInt(shoppingItem.sub_total);
       totalqty = totalqty += parseInt(shoppingItem.qty)
 
-      $('#totalMoney').text(`$: ${total}`);
+      $('#totalMoney').text(` $${total}`);
       $('#time').text(`Estimated time ${totalqty *5 + 20} min`);
       $('#cartcontainer').append(createCartElement(shoppingItem));
     })
