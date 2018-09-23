@@ -18,34 +18,34 @@ module.exports = (knex) => {
 
     const createOrderRecord = function (phoneNum) {
       return knex('orders')
-        .insert({
-          'phone': parseInt(phoneNum),
-          'status': 'preparing'
-        })
+      .insert({
+        'phone' : parseInt(phoneNum),
+        'status': 'preparing'
+      })
     }
 
     const getCartItems = function () {
       return knex('cart')
-        .select('*')
+      .select('*')
     }
 
     const getOrderId = function (phoneNum) {
       return knex('orders')
-        .select('*')
-        .where("phone", parseInt(phoneNum));
+      .select('*')
+      .where("phone", parseInt(phoneNum));
     }
 
     const createLineItems = function (lineItemsToCreate) {
       return knex('orderline')
-        .insert(lineItemsToCreate)
+      .insert(lineItemsToCreate)
     }
 
     const deleteCartItems = function () {
       return knex('cart')
-        .del()
+      .del()
     }
 
-    async function createOrderPrmsAsync(phoneNum) {
+    async function createOrderPrmsAsync(phoneNum){
       const orderPrms = createOrderRecord(phoneNum);
       const cartItemsPrms = getCartItems();
 

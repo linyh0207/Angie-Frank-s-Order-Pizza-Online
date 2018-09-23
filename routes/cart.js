@@ -7,12 +7,21 @@ module.exports = (knex) => {
 
   router.get("/", function (req, res) {
     knex('cart')
+<<<<<<< HEAD
       .join('menu', 'menu.id', 'cart.menu_id')
       .select('pizza_name', 'qty', 'sub_total')
       .then((results) => {
         console.log(results);
         res.json(results);
       });
+=======
+    .join('menu', 'menu.id', 'cart.menu_id')
+    .select('pizza_name','qty','sub_total')
+    .then((results) =>{
+      console.log(results);
+      res.json(results);
+    });
+>>>>>>> 8b147d4861f6e528fbfb4f074b1f85c850129dee
   }); //router.get ends here
 
   router.post("/", (req, res) => {

@@ -59,20 +59,53 @@ const createMenu = function (item) {
   // Create and Render Shopping Cart -- Ends
 
 
-  //Add a item to shopping cart when valid quantity enter and click the add button-- Start
-  let $menuContainer = $('#menuContainer');
+    //Add a item to shopping cart when valid quantity enter and click the add button-- Start
+    let $menuContainer = $('#menuContainer');
 
-  $menuContainer.on('click', '*[data-add-pizza]', function (event) {
-    event.preventDefault();
-    let $this = $(this);
-    let quant = $this.siblings('input[data-add-quantity]').val();
-    let errorMsg = $this.next();
-    let $subTotal = ($this.data('add-price')) * quant
-    let formData = {
-      'menu_id': $this.data('add-id'),
-      'qty': quant,
-      'sub_total': $subTotal
-    }
+    $menuContainer.on('click', '*[data-add-pizza]', function(event) {
+        event.preventDefault();
+        let $this = $(this);
+        let quant = $this.siblings('input[data-add-quantity]').val();
+        let errorMsg = $this.next();
+        let $subTotal = ($this.data('add-price')) * quant
+        let formData = {
+            'menu_id': $this.data('add-id'),
+            'qty': quant,
+            'sub_total': $subTotal
+        }
+
+        if(!quant || quant === '0'){
+            errorMsg.removeAttr('hidden').text('invalid quantity');
+                } else {
+                $.ajax
+                ({
+                  method: "POST",
+                  url: "/customer/cart",
+                  data: formData,
+                  success: function(result){
+                    errorMsg.empty();
+                    $this.siblings('input[data-add-quantity]').val('');
+                    $('#cartContainer').empty();
+                    $.ajax
+                    ({
+                      method:'get',
+                      url:'/customer/cart',
+                      success: function(result){
+                        console.log("it was success");
+                        renderCart(result);
+                      },
+                      error: function(err){
+                        console.log("there was an error");
+                      }
+                    })
+                },
+                error: function(err){
+                  alert("we are in error", err);
+                }
+              });
+        };
+    });
+    //Add a item to shopping cart when valid quantity enter and click the add button -- End
 
     if (!quant || quant === '0') {
       errorMsg.removeAttr('hidden').text('invalid quantity');
