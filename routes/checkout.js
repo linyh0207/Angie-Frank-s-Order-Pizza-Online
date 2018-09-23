@@ -29,10 +29,10 @@ module.exports = (knex) => {
       .select('*')
     }
 
-    const getOrderId = function (num) {
+    const getOrderId = function () {
       return knex('orders')
       .select('*')
-      .where("phone", num)
+      .where('phone', parseInt(req.body.phoneNumber))
     }
 
     const createLineItems = function (lineItemsToCreate) {
@@ -56,17 +56,15 @@ module.exports = (knex) => {
       const cartItems = await cartItemsPrms;
       const orderId = await orderIdPrms;
 
-      console.log(getOrderId(req.body.phoneNumber))
 
       const lineItemsToCreate = cartItems.map(cartItem => ({
         'id': undefined,
-        'order_id': orderId.id,
+        'order_id': orderId[0].id,
         'menu_id': cartItem.menu_id,
         'qty': cartItem.qty,
         'total_price': cartItem.sub_total
       }));
     
-      console.log(lineItemsToCreate);
 
       const deleteCartItemsPrms = deleteCartItems();
     
