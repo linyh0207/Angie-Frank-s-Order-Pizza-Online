@@ -19,5 +19,27 @@ $(function () {
     }
   
     loadComplete();
-    //Create, Render and Load Menu Items -- End
+    //Create, Render and Load orderline -- End
+
+
+    //Update the status of the order after click the submit button in order for it to complete
+    let $completeContainer = $('div#completeContainer');
+
+    $completeContainer.on('click', '*[data-complete]', function(event) {
+      event.preventDefault();
+      let $this = $(this);
+      let formData = {'orderId': $this.data('complete')}
+      $.ajax({
+            method:"POST",
+            url:"/owner/complete",
+            data: formData
+        }).then(function(result) {
+          $.ajax('/owner/complete', { method: 'GET' })
+          .then(function (iDs) {
+          renderOrder(iDs);
+
+          console.log('This is the result' + iDs);
+        })
+      })
+    })
   })
