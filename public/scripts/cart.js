@@ -49,7 +49,6 @@ const createMenu = function (item) {
     let $cartQuan = $('<h5>').addClass('card-subtitle').text(shoppingItem.qty);
     let $cartPrice = $('<h6>').addClass('card-subtitle').text(shoppingItem.sub_total);
     let $cartURL = $('<img>').attr('src', shoppingItem.url);
-    console.log(shoppingItem.url)
     $cart.append($cartName, $cartURL, $cartQuan, $cartPrice);
     return $cart;
   }
@@ -107,38 +106,7 @@ const createMenu = function (item) {
               });
         };
     });
-    //Add a item to shopping cart when valid quantity enter and click the add button -- End
-
-    if (!quant || quant === '0') {
-      errorMsg.removeAttr('hidden').text('invalid quantity');
-    } else {
-      $.ajax({
-        method: "POST",
-        url: "/customer/cart",
-        data: formData,
-        success: function (result) {
-          errorMsg.empty();
-          $this.siblings('input[data-add-quantity]').val('');
-          $('#cartContainer').empty();
-          $.ajax({
-            method: 'get',
-            url: '/customer/cart',
-            success: function (result) {
-              console.log("it was success");
-              renderCart(result);
-            },
-            error: function (err) {
-              console.log("there was an error");
-            }
-          })
-        },
-        error: function (err) {
-          alert("we are in error", err);
-        }
-      });
-    };
-
-  //Add a item to shopping cart when valid quantity enter and click the add button -- End
+//Add a item to shopping cart when valid quantity enter and click the add button -- End
 
   //Load shopping cart -- Start
   const loadCart = function () {

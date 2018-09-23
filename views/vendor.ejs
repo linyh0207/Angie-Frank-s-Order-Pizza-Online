@@ -19,7 +19,6 @@
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
   <script type="text/javascript" src="/scripts/app.js"></script>
   <script type="text/javascript" src="/scripts/owner.js"></script>
-  <script type="text/javascript" src="/scripts/orderline.js"></script>
   <script type="text/javascript" src="/scripts/complete.js"></script>
 </head>
 
@@ -34,23 +33,19 @@
 
   <div class="container">
     <div class="row">
-      <div class="col-6">
+      <div class="col-6" id="pendingcolumn">
         <h1>Pending Orders</h1>
-        <div class="row" id="pendingOrder">
-          <div class="col-12">
-            <div id='orderContainer' class=card>
-            </div>
+        <div class="row" id="pendingorder">
+          <div class="col-12" id='ordercontainer'>
           </div>
         </div>
       </div>
-      <div class="col-6">
+      <div class="col-6" id="completedcolumn">
         <h1>Completed Orders</h1>
-        <div class="row" id="completedOrder">
+        <div class="row" id="completedorder">
           <div class="col-12">
-            <div id='completedOrderContainer' class=card>
-              <form id="completebutton'" class="form-inline">
-                <input class="btn btn-outline-secondary" type="submit" value="Ready for Pickup">
-              </form>
+            <div id='completecontainer' class=card>
+
             </div>
           </div>
         </div>

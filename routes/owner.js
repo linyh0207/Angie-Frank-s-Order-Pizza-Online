@@ -7,7 +7,7 @@ module.exports = (knex) => {
 
   router.get("/", (req, res) => {
     knex
-    .select("order_id", "pizza_name", "qty")
+    .select("order_id", "pizza_name", "qty", "url")
     .from("orderline")
     .join('orders', 'orderline.order_id', 'orders.id')
     .where({status: 'preparing'})

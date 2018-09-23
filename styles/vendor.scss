@@ -20,42 +20,31 @@ body {
 
   div.container {
 
-    h1 {}
-
     div.row {
 
-      div.col-12 {
+      div#pendingcolumn {
 
-        div.card {
-          margin-bottom: 1em;
+        h1 {}
 
-          p {
-            margin: 1em;
-            border-bottom: 1px solid black;
-          }
+        div#pendingorder {
 
-          form {
+          div.col-12 {
 
-            input {
-              margin: 1em;
+            div.card {
+              margin-bottom: 1em;
+
+              p {
+                margin: 1em;
+              }
+
+              img {
+                width: 50%;
+              }
+
+              p {}
+
             }
-
           }
-        }
-      }
-    }
-
-    h1 {}
-
-    div.row {
-
-      div.col-12 {
-
-        div.card {
-          margin-bottom: 1em;
-
-          p {}
-
         }
       }
     }
@@ -91,6 +80,6 @@ body {
           }
         }
       }
-    }  
+    }
   }
 }

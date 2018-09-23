@@ -8,7 +8,7 @@ module.exports = (knex) => {
   router.get("/", function (req, res) {
     knex('cart')
     .join('menu', 'menu.id', 'cart.menu_id')
-    .select('pizza_name','qty','sub_total')
+    .select('pizza_name','qty','sub_total', 'url')
     .then((results) =>{
       console.log(results);
       res.json(results);

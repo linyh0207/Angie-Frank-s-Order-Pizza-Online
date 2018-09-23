@@ -1,0 +1,50 @@
+body {
+  background-color: white;
+}
+body nav {
+  background-color: white;
+  height: 100px;
+}
+body nav img {
+  width: 300px;
+  margin-left: 1em;
+}
+body nav form.form-inline input.btn {
+  color: grey;
+  margin: 1em;
+}
+body div.container div.row div#pendingcolumn div#pendingorder div.col-12 div.card {
+  margin-bottom: 1em;
+}
+body div.container div.row div#pendingcolumn div#pendingorder div.col-12 div.card p {
+  margin: 1em;
+  border-bottom: 1px solid black;
+}
+body div.container div.row div#pendingcolumn div#pendingorder div.col-12 div.card img {
+  padding: 2em;
+}
+body footer {
+  background-color: #cecece;
+  height: 150px;
+}
+body footer div.containerfooter {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+body footer div.containerfooter div.row div.col-8 img.footerlogo {
+  width: 200px;
+  margin: 35px;
+}
+body footer div.containerfooter div.row div.col-2 p {
+  text-align: right;
+  color: white;
+  margin-top: 22px;
+}
+body footer div.containerfooter div.row div.col-2 img.footermap {
+  margin-right: 10px;
+  margin-top: 26px;
+  width: 170px;
+}
+
+/*# sourceMappingURL=vendor.css.map */

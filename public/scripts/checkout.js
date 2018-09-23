@@ -17,7 +17,7 @@ $(function () {
     //   if(total = zero){
     //       console.log('no item to checkout');
     //       } else{
-
+ let formData = { 'phoneNumber': $('#cusNumber').val() }
       $.ajax({
             method:"POST",
             url:"/customer/checkout",
