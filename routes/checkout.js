@@ -15,31 +15,68 @@ module.exports = (knex) => {
   // });
 
   router.post("/", (req, res) => {
-    //insert into the table.
-    knex('orders')
-    .insert({
-      'phone': parseInt(req.body.phoneNumber),
-      'status': 'preparing'
-    })
-    .returning('*')
-    .asCallback((err, createdRecords) => {
-      if(err){
-        return console.error("error running handler", err);
-      } else{
-        const createdRecord = createdRecords[0];
-        res.json(createdRecords)
-        console.log('Created Record is', createdRecord);
-      }
-    });
+    
+    const createOrderRecord = function (phoneNum) {
+      knex('orders')
+      .insert({
+        'phone' : parseInt(phoneNum),
+        'status': 'preparing'
+      })
+    }
+    
+    const getCartItems = function () {
+      knex('cart')
+      .select('*')
+    }
 
-    // knex.select('*').from('cart')
+    const getOrderId = function () {
+      knex('orders')
+      .select('*')
+      .where({phone: req.body.phoneNumber})
+    }
 
+    const createLineItems = function (lineItemsToCreate) {
+      knex('orderline')
+      .insert(lineItemsToCreate)
+    }
 
-    // knex('orderline')
-    // .insert({
-    //   'order_id': 
-    // }
+    const deleteCartItems = function () {
+      knex('cart')
+      .del()
+    }    
+    
+    async function createOrderPrmsAsync(phoneNum){
+      const orderPrms = createOrderRecord(phoneNum);
+      const cartItemsPrms = getCartItems();
+      
 
-  });
+      const order = await orderPrms;
+      const orderIdPrms = getOrderId(order);
+      const cartItems = await cartItemsPrms;
+      const orderId = await orderIdPrms;
+
+      const lineItemsToCreate = cartItems.map(cartItem => ({
+        'id': undefined,
+        'order_id': orderId.id,
+        'menu_id': cartItem.menu_id,
+        'qty': cartItem.qty,
+        'total_price': cartItem.sub_total
+      }));
+    
+      const deleteCartItemsPrms = deleteCartItems();
+    
+      const orderlineItem = await createLineItems(lineItemsToCreate);
+      // const queriedLineItems = await queryLineItemsWithDescriptionByOrder(order.id);
+      await deleteCartItemsPrms;
+    
+      // return {
+      //   ...order,
+      //   lineItems: queriedLineItems
+      // };
+      return res.json(orderlineItem);
+    }
+
+    createOrderPrmsAsync(req.body.phoneNumber)
+  })
   return router;
 }

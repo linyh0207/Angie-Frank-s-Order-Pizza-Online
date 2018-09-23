@@ -80,7 +80,6 @@ $(function () {
                   url: "/customer/cart",
                   data: formData,
                   success: function(result){
-                    alert("in then function")
                     errorMsg.empty();
                     $this.siblings('input[data-add-quantity]').val('');
                     $('#cartContainer').empty();
@@ -93,7 +92,6 @@ $(function () {
                         renderCart(result);
                       },
                       error: function(err){
-                        alert("We are in error")
                         console.log("there was an error");
                       }
                     })

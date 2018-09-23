@@ -10,7 +10,6 @@ module.exports = (knex) => {
     .join('menu', 'menu.id', 'cart.menu_id')
     .select('pizza_name','qty','sub_total')
     .then((results) =>{
-      console.log("rohit ");
       console.log(results);
       res.json(results);
     });
