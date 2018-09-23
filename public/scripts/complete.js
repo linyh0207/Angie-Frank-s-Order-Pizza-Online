@@ -37,7 +37,7 @@ $(function () {
           $.ajax('/owner/complete', { method: 'GET' })
           .then(function (iDs) {
           renderOrder(iDs);
-
+          $('#completeContainer').empty();
           console.log('This is the result' + iDs);
         })
       })
