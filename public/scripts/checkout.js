@@ -23,6 +23,9 @@ $(function () {
             url:"/customer/checkout",
             data: formData
         }).then(function() {
+          $('#cartcontainer').empty();
+          $('#totalMoney').text(`$0.00`);
+          $('#cusNumber').val('');
           console.log('CHEEEEEEEEEEEEEEEEEEEEECKOUT')
         })
       });
