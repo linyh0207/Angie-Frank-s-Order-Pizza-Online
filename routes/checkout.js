@@ -53,11 +53,8 @@ module.exports = (knex) => {
       const orderIdPrms = getOrderId(phoneNum);
       const cartItems = await cartItemsPrms;
       const orderId = await orderIdPrms;
-
-
-      console.log(orderId[0].id);
-      console.log(orderId)
-
+      // console.log(orderId[0].id);
+      // console.log(orderId)
       const lineItemsToCreate = cartItems.map(cartItem => ({
         'id': undefined,
         'order_id': orderId[0].id,
