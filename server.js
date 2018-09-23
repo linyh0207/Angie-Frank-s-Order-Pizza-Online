@@ -72,6 +72,8 @@ app.use("/customer/menu", menuRoutes(knex));
 const ownerRoutes = require("./routes/owner");
 app.use("/owner/order", ownerRoutes(knex));
 
+const submitRoutes = require("./routes/submit");
+app.use("/owner/submit", submitRoutes(knex));
 
 app.listen(PORT, () => {
   console.log("Example app listening on port " + PORT);
