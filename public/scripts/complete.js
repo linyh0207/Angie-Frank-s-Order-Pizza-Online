@@ -64,16 +64,16 @@ $(function () {
             url:"/owner/complete",
             data: formData
         }).then(function(result) {
+          $('#completecontainer').empty();
+          $('#ordercontainer').empty();
           $.ajax('/owner/complete', { method: 'GET' })
           .then(function (iDs) {
           renderButton(iDs);
-          $('#completecontainer').empty();
           console.log('This is the result' + iDs);
           $.ajax('/owner/order', { method: 'GET' })
           .then(function (orders) {
             renderOrder(orders);
           })
-          $('#ordercontainer').empty();
         })
       })
     })
