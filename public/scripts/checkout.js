@@ -4,19 +4,11 @@ $(function () {
     $button.on('submit', function (e) {
       e.preventDefault();
       $('#status').removeAttr('hidden');
-
       // $.ajax({
       //   method: "GET",
-      //   url: "/checkout",
-      //   success: function (res) {
-      //   alert('SUCCESS');
-      //   }
-      // })
-
-  // Will need to set up error mesage for empty shopping cart
-    //   if(total = zero){
-    //       console.log('no item to checkout');
-    //       } else{
+      //   url: "/customermes",
+      // });
+ 
  let formData = { 'phoneNumber': $('#cusNumber').val() }
       $.ajax({
             method:"POST",

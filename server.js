@@ -86,6 +86,8 @@ app.get('/customermes', function (req, res) {
   }).then((message) => console.log(message.sid, "SMS SENT!"));
 });
 
+const cusMsgRoutes = require("./routes/customermes");
+app.use("/customermes", cusMsgRoutes(knex));
 
 const menuRoutes = require("./routes/menu");
 app.use("/customer/menu", menuRoutes(knex));
