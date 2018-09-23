@@ -7,10 +7,12 @@ module.exports = (knex) => {
 
   router.get("/", (req, res) => {
     knex
-      .select("*")
-      .from("orderline")
-      .then((results) => {
-        res.json(results);
+    .select("order_id", "pizza_name", "qty")
+    .from("orderline")
+    .join('orders', 'orderline.order_id', 'orders.id')
+    .join('menu', 'menu.id', 'orderline.menu_id')
+    .then((results) => {
+      res.json(results);
     });
   });
 
