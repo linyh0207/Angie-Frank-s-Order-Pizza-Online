@@ -31,16 +31,26 @@ const createMenu = function (item) {
       })
     }
 
-    const loadMenu = function () {
-      $.ajax('/customer/menu', { method: 'GET' })
-      .then(function (pizzas) {
-        renderMenu(pizzas);
-      })
-    }
+  const loadMenu = function () {
+    $.ajax('/customer/menu', { method: 'GET' })
+    .then(function (pizzas) {
+      renderMenu(pizzas);
+    })
+  }
 
-    loadMenu();
-    //Create, Render and Load Menu Items -- End
+  loadMenu();
+  //Create, Render and Load Menu Items -- End
 
+  //Create and Render Shopping Cart -- Start
+  const createCartElement = function (shoppingItem){
+    let $cart = $('<div>').addClass('card-body')
+    let $cartName = $('<h5>').addClass('card-title')
+    .text(shoppingItem.pizza_name);
+    let $cartQuan = $('<h5>').addClass('card-subtitle')
+    .text(shoppingItem.qty);
+    let $cartPrice = $('<h6>').addClass('card-subtitle')
+    .text(shoppingItem.sub_total);
+    $cart.append($cartName, $cartQuan, $cartPrice);
 
   //Create and Render Shopping Cart -- Start
   const createCartElement = function (shoppingItem) {
@@ -58,7 +68,22 @@ const createMenu = function (item) {
     })
   }
   // Create and Render Shopping Cart -- Ends
+    return $cart;
+  }
+  const renderCart = function (shoppingItems) {
+    let total = 0;
+    let totalqty =0;
+    // let baseTime = 0;
+    shoppingItems.forEach(function(shoppingItem){
+      total = total += parseInt(shoppingItem.sub_total);
+      totalqty = totalqty += parseInt(shoppingItem.qty)
 
+      $('#totalMoney').text(`$: ${total}`);
+      $('#time').text(`Estimated time ${totalqty *5 + 20} min`);
+      $('#cartContainer').append(createCartElement(shoppingItem));
+    })
+  }
+  // Create and Render Shopping Cart -- Ends
 
     //Add a item to shopping cart when valid quantity enter and click the add button-- Start
     let $menuContainer = $('#menuContainer');

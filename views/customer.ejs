@@ -49,8 +49,7 @@
           <div class="card-body" id="totalprice">
             <form id= "checkoutbtn" class="form-inline" >
               <h5 class="card-title">Total: </h5>
-              <p class ="card-title"> $$ subtotal</p>
-              <div class="container">
+              <p id="totalMoney" class ="card-title"></p>
               <p class="card-title">Phone Number: </p>
               <input id = cusNumber name="text" placeholder="PHONE NUMBER">
               <input type="submit" value="Checkout">
@@ -59,11 +58,11 @@
         </div>
         <div class="card">
           <div id= "status" hidden="true" class="card-body">
-            <p class="card-title">Order Confirmed</p>
-            <p class="card-subtitle">Status</p>
-            <p class="card-subtitle">Being Prepared</p>
+            <h4 class="card-title">Order Confirmed</h4>
+            <h5 class="card-subtitle">Status</h5>
+            <h4 class="card-subtitle">Being Prepared</h4>
             <img src="http://www.pizzaloca.ru/bitrix/templates/eshop_adapt_yellow_my_template/images/Preloader.gif">
-            <p class="card-subtitle">Estimated Wait Time: 0 minutes</p>
+            <h5 id="time" class="card-subtitle">Estimated Wait Time: 0 minutes</h5>
           </div>
         </div>
       </div>
