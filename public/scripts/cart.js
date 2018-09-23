@@ -57,10 +57,14 @@ $(function () {
   }
   const renderCart = function (shoppingItems) {
     let total = 0;
+    let totalqty =0;
+    // let baseTime = 0;
     shoppingItems.forEach(function(shoppingItem){
       total = total += parseInt(shoppingItem.sub_total);
-      $('#totalMoney').empty();
+      totalqty = totalqty += parseInt(shoppingItem.qty)
+
       $('#totalMoney').text(`$: ${total}`);
+      $('#time').text(`Estimated time ${totalqty *5 + 20} min`);
       $('#cartContainer').append(createCartElement(shoppingItem)); 
     })
   }
