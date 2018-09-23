@@ -48,7 +48,9 @@ const createMenu = function (item) {
     let $cartName = $('<h5>').addClass('card-title').text(shoppingItem.pizza_name);
     let $cartQuan = $('<h5>').addClass('card-subtitle').text(shoppingItem.qty);
     let $cartPrice = $('<h6>').addClass('card-subtitle').text(shoppingItem.sub_total);
-    $cart.append($cartName, $cartQuan, $cartPrice);
+    let $cartURL = $('<img>').attr('src', shoppingItem.url);
+    console.log(shoppingItem.url)
+    $cart.append($cartName, $cartURL, $cartQuan, $cartPrice);
     return $cart;
   }
   const renderCart = function (shoppingItems) {
@@ -135,7 +137,7 @@ const createMenu = function (item) {
         }
       });
     };
-  });
+
   //Add a item to shopping cart when valid quantity enter and click the add button -- End
 
   //Load shopping cart -- Start
@@ -150,4 +152,4 @@ const createMenu = function (item) {
   loadCart();
   //Load shopping cart -- End
 
-  });
+});
