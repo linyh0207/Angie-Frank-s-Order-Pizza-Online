@@ -57,6 +57,12 @@ $(function () {
 
     $completeContainer.on('click', '*[data-complete]', function(event) {
       event.preventDefault();
+
+      $.ajax({
+        method: "GET",
+        url: "/customermes",
+      });
+
       let $this = $(this);
       let formData = {'orderId': $this.data('complete')}
       $.ajax({

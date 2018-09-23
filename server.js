@@ -72,7 +72,7 @@ app.use("/customer/cart", addRoutes(knex));
 
 app.get('/ownermes', function (req, res) {
     client.messages.create({
-      to: '+16476078485',
+      to: '+17789961608',
       from: '+16138016248',
       body: 'You have an order ready to be prepared!'
     }).then((message) => console.log(message.sid, "SMS SENT!"));
@@ -80,14 +80,13 @@ app.get('/ownermes', function (req, res) {
 
 app.get('/customermes', function (req, res) {
   client.messages.create({
-    to: '+16476078485',
+    to: '+17789961608',
     from: '+16138016248',
     body: 'You have an order ready for pickup!'
   }).then((message) => console.log(message.sid, "SMS SENT!"));
 });
+// +16476078485
 
-const cusMsgRoutes = require("./routes/customermes");
-app.use("/customermes", cusMsgRoutes(knex));
 
 const menuRoutes = require("./routes/menu");
 app.use("/customer/menu", menuRoutes(knex));

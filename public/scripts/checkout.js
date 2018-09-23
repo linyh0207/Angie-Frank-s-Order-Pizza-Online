@@ -4,10 +4,10 @@ $(function () {
     $button.on('submit', function (e) {
       e.preventDefault();
       $('#status').removeAttr('hidden');
-      // $.ajax({
-      //   method: "GET",
-      //   url: "/customermes",
-      // });
+      $.ajax({
+        method: "GET",
+        url: "/ownermes",
+      });
  
  let formData = { 'phoneNumber': $('#cusNumber').val() }
       $.ajax({
