@@ -29,10 +29,10 @@ module.exports = (knex) => {
       .select('*')
     }
 
-    const getOrderId = function () {
+    const getOrderId = function (phoneNum) {
       return knex('orders')
       .select('*')
-      .where('phone', parseInt(req.body.phoneNumber))
+      .where("phone", parseInt(phoneNum));
     }
 
     const createLineItems = function (lineItemsToCreate) {
@@ -48,14 +48,15 @@ module.exports = (knex) => {
     async function createOrderPrmsAsync(phoneNum){
       const orderPrms = createOrderRecord(phoneNum);
       const cartItemsPrms = getCartItems();
-      
-      
 
       const order = await orderPrms;
-      const orderIdPrms = getOrderId(req.body.phoneNumber);
+      const orderIdPrms = getOrderId(phoneNum);
       const cartItems = await cartItemsPrms;
       const orderId = await orderIdPrms;
 
+
+      console.log(orderId[0].id);
+      console.log(orderId)
 
       const lineItemsToCreate = cartItems.map(cartItem => ({
         'id': undefined,
@@ -64,18 +65,13 @@ module.exports = (knex) => {
         'qty': cartItem.qty,
         'total_price': cartItem.sub_total
       }));
-    
 
       const deleteCartItemsPrms = deleteCartItems();
     
       const orderlineItem = await createLineItems(lineItemsToCreate);
-      // const queriedLineItems = await queryLineItemsWithDescriptionByOrder(order.id);
+     
       await deleteCartItemsPrms;
-    
-      // return {
-      //   ...order,
-      //   lineItems: queriedLineItems
-      // };
+
       return res.json(orderlineItem);
     }
 
