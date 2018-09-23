@@ -27,7 +27,7 @@ const createMenu = function (item) {
 
     const renderMenu = function (items) {
       items.forEach(function(pizza) {
-        $('#menuContainer').prepend(createMenu(pizza));
+        $('#menucontainer').prepend(createMenu(pizza));
       })
     }
 
@@ -42,34 +42,16 @@ const createMenu = function (item) {
   //Create, Render and Load Menu Items -- End
 
   //Create and Render Shopping Cart -- Start
-  const createCartElement = function (shoppingItem){
-    let $cart = $('<div>').addClass('card-body')
-    let $cartName = $('<h5>').addClass('card-title')
-    .text(shoppingItem.pizza_name);
-    let $cartQuan = $('<h5>').addClass('card-subtitle')
-    .text(shoppingItem.qty);
-    let $cartPrice = $('<h6>').addClass('card-subtitle')
-    .text(shoppingItem.sub_total);
-    $cart.append($cartName, $cartQuan, $cartPrice);
-
-  //Create and Render Shopping Cart -- Start
   const createCartElement = function (shoppingItem) {
     let $cart = $('<div>').addClass('card-body')
-    let $cartName = $('<h5>').addClass('card-title').text(shoppingItem.pizza_name);
-    let $cartQuan = $('<h5>').addClass('card-subtitle').text(shoppingItem.qty);
-    let $cartPrice = $('<h6>').addClass('card-subtitle').text(shoppingItem.sub_total);
+    let $cartName = $('<p>').addClass('card-title').text(shoppingItem.pizza_name);
+    let $cartQuan = $('<p>').addClass('card-subtitle').text(shoppingItem.qty);
+    let $cartPrice = $('<p>').addClass('card-subtitle').text(shoppingItem.sub_total);
     let $cartURL = $('<img>').attr('src', shoppingItem.url);
     $cart.append($cartName, $cartURL, $cartQuan, $cartPrice);
     return $cart;
   }
-  const renderCart = function (shoppingItems) {
-    shoppingItems.forEach(function (shoppingItem) {
-      $('#cartContainer').append(createCartElement(shoppingItem));
-    })
-  }
-  // Create and Render Shopping Cart -- Ends
-    return $cart;
-  }
+
   const renderCart = function (shoppingItems) {
     let total = 0;
     let totalqty =0;
@@ -80,13 +62,13 @@ const createMenu = function (item) {
 
       $('#totalMoney').text(`$: ${total}`);
       $('#time').text(`Estimated time ${totalqty *5 + 20} min`);
-      $('#cartContainer').append(createCartElement(shoppingItem));
+      $('#cartcontainer').append(createCartElement(shoppingItem));
     })
   }
   // Create and Render Shopping Cart -- Ends
 
     //Add a item to shopping cart when valid quantity enter and click the add button-- Start
-    let $menuContainer = $('#menuContainer');
+    let $menuContainer = $('#menucontainer');
 
     $menuContainer.on('click', '*[data-add-pizza]', function(event) {
         event.preventDefault();
@@ -111,7 +93,7 @@ const createMenu = function (item) {
                   success: function(result){
                     errorMsg.empty();
                     $this.siblings('input[data-add-quantity]').val('');
-                    $('#cartContainer').empty();
+                    $('#cartcontainer').empty();
                     $.ajax
                     ({
                       method:'get',
