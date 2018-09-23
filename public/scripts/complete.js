@@ -3,9 +3,9 @@ $(function () {
   //Create, Render and Load orderline -- Start
   const createOrder = function (item) {
     let $order = $('<div>').addClass('card');
-    let $orderNum = $('<p>').addClass('card-title').text(item.order_id);
+    let $orderNum = $('<p>').addClass('card-title').text(`Order #: ${item.order_id}`);
     let $name = $('<p>').addClass('card-title').text(item.pizza_name);
-    let $qty = $('<p>').addClass('card-title').text(item.qty);
+    let $qty = $('<p>').addClass('card-title').text(`Quantity: ${item.qty}`);
     let $itemURL = $('<img>').attr('src', item.url);
 
     $order.append($orderNum, $name, $itemURL, $qty);
@@ -31,7 +31,7 @@ $(function () {
 
     //Create, Render and Load orderline -- Start
     const createId = function (iD) {
-      let $completeButton = $('<button>').addClass('completeButton').text('complete').attr('data-complete', iD.id);
+      let $completeButton = $('<button>').addClass('completeButton btn btn-outline-secondary').text(`Complete Order #: ${iD.id}`).attr('data-complete', iD.id);
       return $completeButton;
     }
 
@@ -57,6 +57,12 @@ $(function () {
 
     $completeContainer.on('click', '*[data-complete]', function(event) {
       event.preventDefault();
+
+      $.ajax({
+        method: "GET",
+        url: "/customermes",
+      });
+
       let $this = $(this);
       let formData = {'orderId': $this.data('complete')}
       $.ajax({
@@ -64,16 +70,16 @@ $(function () {
             url:"/owner/complete",
             data: formData
         }).then(function(result) {
+          $('#completecontainer').empty();
+          $('#ordercontainer').empty();
           $.ajax('/owner/complete', { method: 'GET' })
           .then(function (iDs) {
           renderButton(iDs);
-          $('#completecontainer').empty();
           console.log('This is the result' + iDs);
           $.ajax('/owner/order', { method: 'GET' })
           .then(function (orders) {
             renderOrder(orders);
           })
-          $('#ordercontainer').empty();
         })
       })
     })

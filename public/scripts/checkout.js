@@ -4,25 +4,20 @@ $(function () {
     $button.on('submit', function (e) {
       e.preventDefault();
       $('#status').removeAttr('hidden');
-
-      // $.ajax({
-      //   method: "GET",
-      //   url: "/checkout",
-      //   success: function (res) {
-      //   alert('SUCCESS');
-      //   }
-      // })
-
-  // Will need to set up error mesage for empty shopping cart
-    //   if(total = zero){
-    //       console.log('no item to checkout');
-    //       } else{
+      $.ajax({
+        method: "GET",
+        url: "/ownermes",
+      });
+ 
  let formData = { 'phoneNumber': $('#cusNumber').val() }
       $.ajax({
             method:"POST",
             url:"/customer/checkout",
             data: formData
         }).then(function() {
+          $('#cartcontainer').empty();
+          $('#totalMoney').text(`$0.00`);
+          $('#cusNumber').val('');
           console.log('CHEEEEEEEEEEEEEEEEEEEEECKOUT')
         })
       });
