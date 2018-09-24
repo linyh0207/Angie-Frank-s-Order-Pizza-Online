@@ -8,7 +8,7 @@ $(function () {
     let $qty = $('<p>').addClass('card-title').text(`Quantity: ${item.qty}`);
     let $itemURL = $('<img>').attr('src', item.url);
 
-    $order.append($orderNum, $name, $itemURL, $qty);
+    $order.append($orderNum, $name, $qty, $itemURL);
     return $order;
   }
 
