@@ -3,12 +3,19 @@ $(function () {
   //Create, Render and Load orderline -- Start
   const createOrder = function (item) {
     let $order = $('<div>').addClass('card');
+    let $orderRow = $('<div>').addClass('row');
+    let $orderRow6 = $('<div>').addClass('col-6')
+    let $orderRow6two = $('<div>').addClass('col-6')
     let $orderNum = $('<p>').addClass('card-title').text(`Order #: ${item.order_id}`);
     let $name = $('<p>').addClass('card-title').text(item.pizza_name);
     let $qty = $('<p>').addClass('card-title').text(`Quantity: ${item.qty}`);
     let $itemURL = $('<img>').attr('src', item.url);
 
-    $order.append($orderNum, $name, $qty, $itemURL);
+    $order.append($orderRow);
+    $orderRow.append($orderRow6two, $orderRow6);
+    $orderRow6.append($orderNum, $name, $qty);
+    $orderRow6two.append($itemURL);
+    
     return $order;
   }
 
