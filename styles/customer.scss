@@ -91,14 +91,24 @@ body {
         }
 
         div#totalcard {
-
           div.card-body {
-
-            p {}
-
             form.form-inline {
+              h5.card-title{
 
-              input {}
+              }
+              p#totalMoney{
+                margin-right: 30px
+                
+              }
+              h5.card-title{
+                
+              }
+              input#cusNumber {
+                margin:0;
+              }
+              input{
+                margin-top:1em;
+              }
 
             }
           }
@@ -108,17 +118,18 @@ body {
 
           div#status {
 
-            p {}
+            h4 {}
 
-            p {}
+            h5 { margin-bottom: 10px;}
 
-            p {}
+            h4 {}
 
             img {
-              width:100%;
+              width:90%;
+              padding:1em;
             }
 
-            p{}
+            h5{ margin-top: 10px;}
 
           }
         }

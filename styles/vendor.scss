@@ -22,32 +22,59 @@ body {
   }
 
   div.container {
-
-    div.row {
+    div.row { background-color: white;
 
       div#pendingcolumn {
 
-        h1 {}
+        h1 {
+          color: grey;
+          padding-left: 0.5em;
+        }
 
         div#pendingorder {
+
+
 
           div.col-12 {
 
             div.card {
               margin-bottom: 1em;
+              padding: 1em;
+              padding-bottom: 2em;
 
-              p {
-                margin: 1em;
+              p.card-title {
+                
+                margin-left: 1em;
+                margin-bottom: 0;
+                font-size: 20px;
+                font-weight: 600;
+                color: grey
               }
 
               img {
-                width: 50%;
+                width: 40%;
+                margin-left: 2em;
               }
 
-              p {}
+        
 
             }
           }
+        }
+      }
+      div#completedcolumn {
+
+        h1 {
+          color: grey;
+          padding-left: 0.5em;
+
+        }
+        div#completecontainer{
+          border: none;
+        }
+        button.completeButton{
+          margin-bottom: 1em;
+
         }
       }
     }

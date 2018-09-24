@@ -45,8 +45,8 @@ const createMenu = function (item) {
   const createCartElement = function (shoppingItem) {
     let $cart = $('<div>').addClass('card-body')
     let $cartName = $('<p>').addClass('card-title').text(shoppingItem.pizza_name);
-    let $cartQuan = $('<p>').addClass('card-subtitle').text(shoppingItem.qty);
-    let $cartPrice = $('<p>').addClass('card-subtitle').text(shoppingItem.sub_total);
+    let $cartQuan = $('<p>').addClass('card-subtitle').text(`Quantity: ${shoppingItem.qty}`);
+    let $cartPrice = $('<p>').addClass('card-subtitle').text(`Price: $${shoppingItem.sub_total}`);
     let $cartURL = $('<img>').attr('src', shoppingItem.url);
     $cart.append($cartName, $cartURL, $cartQuan, $cartPrice);
     return $cart;
@@ -57,10 +57,10 @@ const createMenu = function (item) {
     let totalqty =0;
     // let baseTime = 0;
     shoppingItems.forEach(function(shoppingItem){
-      total = total += parseInt(shoppingItem.sub_total);
+      total = total += parseFloat(shoppingItem.sub_total);
       totalqty = totalqty += parseInt(shoppingItem.qty)
 
-      $('#totalMoney').text(`$: ${total}`);
+      $('#totalMoney').text(` $${total}`);
       $('#time').text(`Estimated time ${totalqty *5 + 20} min`);
       $('#cartcontainer').append(createCartElement(shoppingItem));
     })
