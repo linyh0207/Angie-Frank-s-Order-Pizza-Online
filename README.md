@@ -3,9 +3,9 @@
 This is a full stack web application that allows customers to place pizza orders online and receive an SMS using the Twillio API when the order is ready. The owner will get a notification via SMS when the order is placed. A group midterm project, and my responsibility was creating the server and database back-end work.
 
 ## ScreenShots
-!["Gif of index page"](https://i.gyazo.com/ad5ded2871dd6aba62a6d1daaaff01b2.gif)
-!["Gif of customer order page"](https://i.gyazo.com/7887e5c2372a3f7a4d159a0a8ed19863.gif)
-!["Gif of owner page"](https://i.gyazo.com/8c9c6ffd2f4a51f94d08263e35271571.gif)
+!["Gif of index page"](https://i.gyazo.com/7448bd67b0260e1303ebf29ad077388b.gif)
+!["Screenshots of customer order page"](https://i.gyazo.com/7887e5c2372a3f7a4d159a0a8ed19863.gif)
+!["Screenshots of owner page"](https://i.gyazo.com/8c9c6ffd2f4a51f94d08263e35271571.gif)
 
 ## Getting Started
 1. Create the `.env` by using `.env.example` as a reference: `cp .env.example .env`
