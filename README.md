@@ -1,14 +1,12 @@
-# Node Skeleton
+#Angie & Frank's - Order Pizza Online
 
-## Project Setup
+Angie and Frank's - Order Pizza Online is a full stack web application that allows customers to place pizza orders online and receive an SMS using the Twillio API when the order is ready. The owner will get a notification via SMS when the order is placed. A group midterm project, and my responsibility was creating the server and database back-end work.
 
-1. Create your own empty repo on GitHub
-2. Clone this repository (do not fork)
-  - Suggestion: When cloning, specify a different folder name that is relevant to your project
-3. Remove the git remote: `git remote rm origin`
-4. Add a remote for your origin: `git remote add origin <your github repo URL>`
-5. Push to the new origin: `git push -u origin master`
-6. Verify that the skeleton code now shows up in your repo on GitHub
+## ScreenShots
+!["Gif of index page"](https://i.gyazo.com/ad5ded2871dd6aba62a6d1daaaff01b2.gif)
+!["Gif of customer order page"](https://i.gyazo.com/7887e5c2372a3f7a4d159a0a8ed19863.gif)
+!["Gif of owner page"](https://i.gyazo.com/8c9c6ffd2f4a51f94d08263e35271571.gif)
+
 
 ## Getting Started
 
@@ -27,3 +25,11 @@
 
 - Node 5.10.x or above
 - NPM 3.8.x or above
+- Body Parser
+- Bootstrap
+- EJS
+- Express
+- Knex
+- PG
+- Twilio
+
