@@ -1,4 +1,4 @@
-#Angie & Frank's - Order Pizza Online
+# Angie & Frank's - Order Pizza Online
 
 This is a full stack web application that allows customers to place pizza orders online and receive an SMS using the Twillio API when the order is ready. The owner will get a notification via SMS when the order is placed. A group midterm project, and my responsibility was creating the server and database back-end work.
 
