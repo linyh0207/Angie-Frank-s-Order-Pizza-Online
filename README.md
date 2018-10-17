@@ -3,7 +3,7 @@
 This is a full stack web application that allows customers to place pizza orders online and receive an SMS using the Twillio API when the order is ready. The owner will get a notification via SMS when the order is placed. A group midterm project, and my responsibility was creating the server and database back-end work.
 
 ## ScreenShots
-!["Gif of index page"](https://i.gyazo.com/7448bd67b0260e1303ebf29ad077388b.gif)
+!["Gif of index page"](https://github.com/linyh0207/Angie-Frank-s-Order-Pizza-Online/blob/master/docs/indexPage.png?raw=true)
 !["Screenshots of customer order page"](https://github.com/linyh0207/Angie-Frank-s-Order-Pizza-Online/blob/master/docs/customerOrderPage.png?raw=true)
 !["Screenshots of owner page"](https://github.com/linyh0207/Angie-Frank-s-Order-Pizza-Online/blob/master/docs/ownerPage.png?raw=true)
 
